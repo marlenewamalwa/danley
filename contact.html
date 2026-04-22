@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Danley Logistics</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav id="mainNav">
+  <a href="index.html" class="nav-logo">
+    <img src="images/danleylogo.png" alt="Danley Logistics">
+    <div class="nav-logo-text"><span class="nav-brand">DANLEY</span><span class="nav-sub">Logistics</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="divisions.html">Divisions</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="divisions.html#euro-archive">Euro-Archive</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="contact.html" class="nav-cta active">Contact Us</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <img src="images/contact-hero.jpg" alt="Contact Danley Logistics" class="page-hero-img">
+  <div class="page-hero-inner">
+    <div class="page-hero-eyebrow"><div class="page-hero-eyebrow-line"></div><span class="page-hero-eyebrow-text">Get in Touch</span></div>
+    <h1>Let's move<br><em>something.</em></h1>
+    <p>Whether you have a shipment ready to go or just want to understand what's possible — we're ready to talk.</p>
+  </div>
+</section>
+
+<!-- CONTACT MAIN -->
+<section class="contact-section">
+  <div class="section-inner">
+    <div class="contact-grid">
+
+      <!-- FORM -->
+      <div class="contact-form reveal">
+        <div style="font-family:var(--font-cond);font-size:10px;letter-spacing:0.32em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:8px;">Send an Enquiry</div>
+        <div style="font-family:var(--font-display);font-size:28px;font-weight:300;color:var(--teal);line-height:1.2;margin-bottom:32px;">Tell us what you need.</div>
+
+        <form action="mailto:info@danleylogistics.com" method="POST" enctype="text/plain">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="fname">First Name</label>
+              <input class="form-input" type="text" id="fname" name="first_name" placeholder="John" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="lname">Last Name</label>
+              <input class="form-input" type="text" id="lname" name="last_name" placeholder="Kamau">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="email">Email Address</label>
+              <input class="form-input" type="email" id="email" name="email" placeholder="john@company.com" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="phone">Phone Number</label>
+              <input class="form-input" type="tel" id="phone" name="phone" placeholder="+254 7XX XXX XXX">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="company">Company / Organisation</label>
+            <input class="form-input" type="text" id="company" name="company" placeholder="Your company name">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="service">I'm Interested In</label>
+            <select class="form-select" id="service" name="service">
+              <option value="">Select a service...</option>
+              <option value="transport">Dedicated Transport</option>
+              <option value="warehousing">Warehousing &amp; Distribution</option>
+              <option value="freight">Freight Forwarding</option>
+              <option value="customs">Customs Clearance</option>
+              <option value="lastmile">Last-Mile Delivery</option>
+              <option value="euro-archive">The Euro-Archive (Fashion)</option>
+              <option value="partnership">Partnership / Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="message">Your Message</label>
+            <textarea class="form-textarea" id="message" name="message" placeholder="Tell us about your logistics needs — cargo type, volume, origin, destination, and any specific requirements..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send Enquiry →</button>
+          <p style="font-size:12px;color:var(--gray);margin-top:12px;line-height:1.6;">We typically respond within one business day. For urgent matters, please call directly.</p>
+        </form>
+      </div>
+
+      <!-- CONTACT INFO -->
+      <div class="contact-info reveal reveal-delay-1">
+        <div class="section-eyebrow"><div class="section-eyebrow-line"></div><span class="section-eyebrow-text">Contact Details</span></div>
+        <h2 class="section-title" style="color:var(--teal);font-size:clamp(28px,3vw,42px);">We're easy<br><em>to reach.</em></h2>
+        <p class="contact-info-body">Two continents, one team. Reach out to the market representative closest to you — or use the general inbox and we'll route your enquiry to the right person.</p>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+          <div>
+            <div class="contact-detail-label">Kenya — Vivien Wamalwa</div>
+            <a href="tel:+254778389333" class="contact-detail-value">+254 778 38 93 33</a>
+            <div style="font-size:11px;color:var(--gray);margin-top:2px;">Nairobi · Available Mon–Fri, 8am–6pm EAT</div>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+          <div>
+            <div class="contact-detail-label">Europe — Linda Wamalwa</div>
+            <a href="tel:+4525485115" class="contact-detail-value">+45 25 48 51 15</a>
+            <div style="font-size:11px;color:var(--gray);margin-top:2px;">Denmark · Available Mon–Fri, 9am–5pm CET</div>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div>
+            <div class="contact-detail-label">General Email</div>
+            <a href="mailto:info@danleylogistics.com" class="contact-detail-value">info@danleylogistics.com</a>
+            <div style="font-size:11px;color:var(--gray);margin-top:2px;">Logistics · Fashion · Partnerships · Careers</div>
+          </div>
+        </div>
+
+        <!-- OFFICES QUICK REFERENCE -->
+        <div style="margin-top:40px;border-top:1px solid var(--cream-dark);padding-top:32px;">
+          <div style="font-family:var(--font-cond);font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:var(--slate);font-weight:600;margin-bottom:20px;">Our Offices</div>
+          <div style="display:flex;flex-direction:column;gap:16px;">
+            <div style="display:flex;gap:14px;align-items:flex-start;">
+              <span style="font-size:22px;">🇰🇪</span>
+              <div>
+                <div style="font-family:var(--font-cond);font-size:12px;font-weight:600;color:var(--teal);letter-spacing:0.1em;text-transform:uppercase;">Nairobi — HQ</div>
+                <div style="font-size:12px;color:var(--slate);">Headquarters · Warehousing · Last-Mile</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:14px;align-items:flex-start;">
+              <span style="font-size:22px;">🇰🇪</span>
+              <div>
+                <div style="font-family:var(--font-cond);font-size:12px;font-weight:600;color:var(--teal);letter-spacing:0.1em;text-transform:uppercase;">Mombasa — Port</div>
+                <div style="font-size:12px;color:var(--slate);">Sea Freight · Bonded Warehousing · KRA</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:14px;align-items:flex-start;">
+              <span style="font-size:22px;">🇩🇰</span>
+              <div>
+                <div style="font-family:var(--font-cond);font-size:12px;font-weight:600;color:var(--teal);letter-spacing:0.1em;text-transform:uppercase;">Denmark — European Hub</div>
+                <div style="font-size:12px;color:var(--slate);">Freight Sourcing · Euro-Archive · Zalando</div>
+              </div>
+            </div>
+          </div>
+          <a href="locations.html" style="display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-family:var(--font-cond);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--teal);text-decoration:none;font-weight:600;border-bottom:1px solid rgba(28,54,54,0.3);padding-bottom:2px;">View All Locations <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div><div class="footer-brand-name">DANLEY</div><div class="footer-brand-sub">Logistics</div><div class="footer-tagline">"Your Cargo. Your Style.<br>Our Commitment."</div></div>
+    <div><div class="footer-col-title">Company</div><ul class="footer-links"><li><a href="about.html">About Us</a></li><li><a href="divisions.html">Our Divisions</a></li><li><a href="services.html">Services</a></li><li><a href="team.html">Our Team</a></li><li><a href="locations.html">Locations</a></li></ul></div>
+    <div><div class="footer-col-title">Services</div><ul class="footer-links"><li><a href="services.html">Dedicated Transport</a></li><li><a href="services.html">Warehousing</a></li><li><a href="services.html">Freight Forwarding</a></li><li><a href="services.html">Customs Clearance</a></li><li><a href="services.html">Last-Mile Delivery</a></li></ul></div>
+    <div><div class="footer-col-title">Contact</div><ul class="footer-links"><li><a href="mailto:info@danleylogistics.com">info@danleylogistics.com</a></li><li><a href="tel:+254778389333">+254 778 38 93 33 (KE)</a></li><li><a href="tel:+4525485115">+45 25 48 51 15 (EU)</a></li><li><a href="locations.html">Nairobi · Mombasa · Denmark</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><div class="footer-copy">© 2026 Danley Logistics Ltd. All rights reserved.</div><div class="footer-est">Est. 2012 — Nairobi, Kenya</div></div>
+</footer>
+
+<script>
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+document.getElementById('navToggle').addEventListener('click', () => { const l = document.querySelector('.nav-links'); l.style.cssText = l.style.display==='flex'?'':'display:flex;flex-direction:column;position:fixed;top:76px;left:0;right:0;background:rgba(22,28,28,0.98);padding:24px;gap:20px;z-index:999;border-bottom:1px solid rgba(196,169,106,0.2)'; });
+document.querySelectorAll('.reveal').forEach(el => new IntersectionObserver((e) => { e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }); }, {threshold:0.12}).observe(el));
+</script>
+</body>
+</html>
