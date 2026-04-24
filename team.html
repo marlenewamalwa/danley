@@ -48,7 +48,7 @@ nav {
 }
 nav.scrolled { height: 64px; border-bottom-color: rgba(196,169,106,0.25); }
 .nav-logo { display: flex; align-items: center; text-decoration: none; gap: 12px; }
-.nav-logo img { height: 36px; width: auto; }
+.nav-logo img { height: 150px; width: auto; }
 .nav-logo-text { display: flex; flex-direction: column; }
 .nav-brand { font-family: var(--font-cond); font-size: 20px; font-weight: 600; letter-spacing: 0.18em; color: var(--white); line-height: 1; }
 .nav-sub { font-family: var(--font-cond); font-size: 9px; letter-spacing: 0.28em; color: var(--gold); font-weight: 500; text-transform: uppercase; }
@@ -388,19 +388,19 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
 
 <nav id="mainNav">
   <a href="index.html" class="nav-logo">
-    <img src="/images/danleylogo.png" alt="Danley Logistics">
-    <div class="nav-logo-text"><span class="nav-brand">DANLEY</span><span class="nav-sub">Logistics</span></div>
+    <img src="images/logo-bg.png" alt="Danley Logistics">
   </a>
   <ul class="nav-links">
     <li><a href="about.html">About</a></li>
     <li><a href="divisions.html">Divisions</a></li>
     <li><a href="services.html">Services</a></li>
-    <li><a href="divisions.html">Euro-Archive</a></li>
-    <li><a href="team.html">Team</a></li>
+    <li><a href="euroarchive.html">Euro-Archive</a></li>
+    <li><a href="locations.html">Locations</a></li>
     <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
   </ul>
   <button class="nav-toggle" id="navToggle"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
 </nav>
+
 
 <!-- PAGE HERO -->
 <section class="page-hero">
@@ -514,12 +514,45 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
 
 <footer>
   <div class="footer-grid">
-    <div><div class="footer-brand-name">DANLEY</div><div class="footer-brand-sub">Logistics</div><div class="footer-tagline">"Your Cargo. Your Style.<br>Our Commitment."</div></div>
-    <div><div class="footer-col-title">Company</div><ul class="footer-links"><li><a href="/about/">About Us</a></li><li><a href="/divisions/">Our Divisions</a></li><li><a href="/services/">Services</a></li><li><a href="/team/">Our Team</a></li><li><a href="/locations/">Locations</a></li></ul></div>
-    <div><div class="footer-col-title">Services</div><ul class="footer-links"><li><a href="/services/">Dedicated Transport</a></li><li><a href="/services/">Warehousing</a></li><li><a href="/services/">Freight Forwarding</a></li><li><a href="/services/">Customs Clearance</a></li><li><a href="/services/">Last-Mile Delivery</a></li></ul></div>
-    <div><div class="footer-col-title">Contact</div><ul class="footer-links"><li><a href="mailto:info@danleylogistics.com">info@danleylogistics.com</a></li><li><a href="tel:+254778389333">+254 778 38 93 33 (KE)</a></li><li><a href="tel:+4525485115">+45 25 48 51 15 (EU)</a></li><li><a href="/locations/">Nairobi · Mombasa · Denmark</a></li></ul></div>
+    <div>
+      <div class="footer-brand-name">DANLEY</div>
+      <div class="footer-brand-sub">Logistics</div>
+      <div class="footer-tagline">"Your Cargo. Your Style.<br>Our Commitment."</div>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="divisions.html">Our Divisions</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="team.html">Our Team</a></li>
+        <li><a href="locations.html">Locations</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="services.html#transport">Dedicated Transport</a></li>
+        <li><a href="services.html#warehousing">Warehousing</a></li>
+        <li><a href="services.html#freight">Freight Forwarding</a></li>
+        <li><a href="services.html#customs">Customs Clearance</a></li>
+        <li><a href="services.html#lastmile">Last-Mile Delivery</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a href="mailto:info@danleylogistics.com">info@danleylogistics.com</a></li>
+        <li><a href="tel:+254778389333">+254 778 38 93 33 (KE)</a></li>
+        <li><a href="tel:+4525485115">+45 25 48 51 15 (EU)</a></li>
+        <li><a href="locations.html">Nairobi · Mombasa · Denmark</a></li>
+      </ul>
+    </div>
   </div>
-  <div class="footer-bottom"><div class="footer-copy">© 2026 Danley Logistics Ltd. All rights reserved.</div><div class="footer-est">Est. 2012 — Nairobi, Kenya</div></div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Danley Logistics Ltd. All rights reserved. Privately owned since 2012.</div>
+    <div class="footer-est">Est. 2012 — Nairobi, Kenya</div>
+  </div>
 </footer>
 
 <script>

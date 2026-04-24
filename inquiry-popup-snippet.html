@@ -1,0 +1,179 @@
+
+<div id="inquiryOverlay" style="
+  position:fixed;inset:0;background:rgba(10,20,20,0.88);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  z-index:9000;display:flex;align-items:center;justify-content:center;
+  padding:20px;opacity:0;pointer-events:none;
+  transition:opacity 0.35s cubic-bezier(0.16,1,0.3,1);
+">
+  <div id="inquiryModal" style="
+    background:#F2EFE9;width:100%;max-width:640px;
+    max-height:90vh;overflow-y:auto;position:relative;
+    transform:translateY(28px) scale(0.98);
+    transition:transform 0.4s cubic-bezier(0.16,1,0.3,1);
+  ">
+
+    <!-- HEADER -->
+    <div style="background:#1C3636;padding:32px 44px 28px;position:relative;">
+      <div style="font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:#C4A96A;font-weight:600;margin-bottom:8px;">Danley Logistics — Quick Enquiry</div>
+      <div style="font-family:'Fraunces',Georgia,serif;font-size:30px;font-weight:300;color:#fff;line-height:1.15;font-optical-sizing:auto;">
+        Tell us what you <em style="color:#D4BC88;">need.</em>
+      </div>
+      <button id="inquiryClose" aria-label="Close enquiry form" style="
+        position:absolute;top:18px;right:18px;background:none;border:none;
+        color:rgba(242,239,233,0.45);cursor:pointer;width:36px;height:36px;
+        display:flex;align-items:center;justify-content:center;
+        font-size:20px;line-height:1;transition:color 0.25s;
+      ">✕</button>
+    </div>
+
+    <!-- FORM BODY -->
+    <div style="padding:36px 44px 40px;">
+      <form id="inquiryForm" action="mailto:info@danleylogistics.com" method="POST" enctype="text/plain">
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px;">
+          <div>
+            <label for="inqName" style="font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:#697878;font-weight:600;display:block;margin-bottom:7px;">Full Name</label>
+            <input id="inqName" name="name" type="text" placeholder="Your name" required style="
+              width:100%;padding:13px 15px;border:1px solid #E8E4DC;
+              background:#fff;font-size:14px;color:#2A3434;
+              outline:none;border-radius:0;box-sizing:border-box;
+              transition:border-color 0.25s;font-family:inherit;
+            " onfocus="this.style.borderColor='#C4A96A'" onblur="this.style.borderColor='#E8E4DC'">
+          </div>
+          <div>
+            <label for="inqPhone" style="font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:#697878;font-weight:600;display:block;margin-bottom:7px;">Phone</label>
+            <input id="inqPhone" name="phone" type="tel" placeholder="+254 7XX XXX XXX" style="
+              width:100%;padding:13px 15px;border:1px solid #E8E4DC;
+              background:#fff;font-size:14px;color:#2A3434;
+              outline:none;border-radius:0;box-sizing:border-box;
+              transition:border-color 0.25s;font-family:inherit;
+            " onfocus="this.style.borderColor='#C4A96A'" onblur="this.style.borderColor='#E8E4DC'">
+          </div>
+        </div>
+
+        <div style="margin-bottom:18px;">
+          <label for="inqEmail" style="font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:#697878;font-weight:600;display:block;margin-bottom:7px;">Email Address</label>
+          <input id="inqEmail" name="email" type="email" placeholder="you@company.com" required style="
+            width:100%;padding:13px 15px;border:1px solid #E8E4DC;
+            background:#fff;font-size:14px;color:#2A3434;
+            outline:none;border-radius:0;box-sizing:border-box;
+            transition:border-color 0.25s;font-family:inherit;
+          " onfocus="this.style.borderColor='#C4A96A'" onblur="this.style.borderColor='#E8E4DC'">
+        </div>
+
+        <div style="margin-bottom:18px;">
+          <label for="inqSubject" style="font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:#697878;font-weight:600;display:block;margin-bottom:7px;">I'm Enquiring About</label>
+          <select id="inqSubject" name="subject" style="
+            width:100%;padding:13px 15px;border:1px solid #E8E4DC;
+            background:#fff;font-size:14px;color:#2A3434;
+            outline:none;border-radius:0;appearance:none;
+            box-sizing:border-box;transition:border-color 0.25s;font-family:inherit;
+          " onfocus="this.style.borderColor='#C4A96A'" onblur="this.style.borderColor='#E8E4DC'">
+            <option value="">Select a topic...</option>
+            <optgroup label="Logistics Services">
+              <option value="Transport">Dedicated Transport</option>
+              <option value="Warehousing">Warehousing &amp; Distribution</option>
+              <option value="Freight">Freight Forwarding</option>
+              <option value="Customs">Customs Clearance</option>
+              <option value="Last Mile">Last-Mile Delivery</option>
+            </optgroup>
+            <optgroup label="Euro-Archive Fashion">
+              <option value="Wholesale">Euro-Archive — Wholesale</option>
+              <option value="Retail">Euro-Archive — Retail</option>
+              <option value="Partnership">Euro-Archive — Partnership</option>
+            </optgroup>
+            <option value="Other">General / Other</option>
+          </select>
+        </div>
+
+        <div style="margin-bottom:20px;">
+          <label for="inqMessage" style="font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:#697878;font-weight:600;display:block;margin-bottom:7px;">Your Message</label>
+          <textarea id="inqMessage" name="message" placeholder="Tell us more — cargo type, volume, origin, destination, fashion category, order size..." style="
+            width:100%;padding:13px 15px;border:1px solid #E8E4DC;
+            background:#fff;font-size:14px;color:#2A3434;
+            outline:none;border-radius:0;min-height:100px;resize:vertical;
+            box-sizing:border-box;transition:border-color 0.25s;font-family:inherit;
+          " onfocus="this.style.borderColor='#C4A96A'" onblur="this.style.borderColor='#E8E4DC'"></textarea>
+        </div>
+
+        <button type="submit" style="
+          background:#1C3636;color:#fff;padding:15px 40px;
+          font-size:13px;letter-spacing:0.16em;text-transform:uppercase;
+          font-weight:600;border:none;cursor:pointer;width:100%;
+          transition:background 0.25s;font-family:inherit;
+        " onmouseover="this.style.background='#254545'" onmouseout="this.style.background='#1C3636'">
+          Send Enquiry →
+        </button>
+
+        <p style="font-size:11px;color:#8A9898;margin-top:10px;line-height:1.6;">
+          We typically respond within one business day. For urgent matters call +254 778 38 93 33.
+        </p>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- POPUP SCRIPT -->
+<script>
+(function() {
+  var overlay  = document.getElementById('inquiryOverlay');
+  var modal    = document.getElementById('inquiryModal');
+  var closeBtn = document.getElementById('inquiryClose');
+  var subject  = document.getElementById('inqSubject');
+
+  function open(topic) {
+    overlay.style.opacity = '1';
+    overlay.style.pointerEvents = 'all';
+    modal.style.transform = 'translateY(0) scale(1)';
+    document.body.style.overflow = 'hidden';
+    if (topic && subject) {
+      for (var i = 0; i < subject.options.length; i++) {
+        var v = subject.options[i].value.toLowerCase();
+        var t = topic.toLowerCase();
+        if (v && (t.indexOf(v) > -1 || v.indexOf(t) > -1)) {
+          subject.value = subject.options[i].value;
+          break;
+        }
+      }
+    }
+    setTimeout(function() {
+      var n = document.getElementById('inqName');
+      if (n) n.focus();
+    }, 120);
+  }
+
+  function close() {
+    overlay.style.opacity = '0';
+    overlay.style.pointerEvents = 'none';
+    modal.style.transform = 'translateY(28px) scale(0.98)';
+    document.body.style.overflow = '';
+  }
+
+  /* Trigger buttons */
+  document.querySelectorAll('.open-inquiry').forEach(function(el) {
+    el.addEventListener('click', function(e) {
+      e.preventDefault();
+      open(el.getAttribute('data-subject') || '');
+    });
+  });
+
+  /* Close button */
+  closeBtn.addEventListener('click', close);
+
+  /* Click outside */
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) close();
+  });
+
+  /* Escape key */
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && overlay.style.pointerEvents !== 'none') close();
+  });
+
+  /* Expose globally */
+  window.openInquiry = open;
+  window.closeInquiry = close;
+})();
+</script>
