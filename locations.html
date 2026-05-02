@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Locations — Danley Logistics</title>
+<link rel="icon" type="image/x-icon" href="images/white.png">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ── DANLEY LOGISTICS — SHARED STYLESHEET ── */
@@ -345,31 +346,149 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
 }
 @media (max-width: 768px) {
-  nav { padding: 0 24px; }
+  nav { padding: 0 20px; }
   .nav-links { display: none; }
   .nav-toggle { display: block; }
-  .section-inner, .page-hero-inner { padding: 0 24px; }
-  .hero-content { padding: 0 24px; }
-  .hero-stats { right: 24px; gap: 24px; }
-  .hero-scroll { left: 24px; }
-  .divisions-banner { padding: 16px 24px; flex-direction: column; gap: 12px; }
+  .section-inner, .page-hero-inner { padding: 0 20px; }
+  .hero-content { padding: 0 20px; }
+  .hero-stats { right: 20px; gap: 20px; }
+  .hero-scroll { left: 20px; }
+  .divisions-banner { padding: 16px 20px; flex-direction: column; gap: 12px; }
   .services-grid, .locations-grid { grid-template-columns: 1fr; }
   .services-header { flex-direction: column; align-items: flex-start; gap: 20px; }
   .team-grid { grid-template-columns: 1fr; }
   .team-card-general { grid-column: span 1; flex-direction: column; }
   .values-grid { grid-template-columns: 1fr 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-  footer { padding: 48px 24px 32px; }
+  footer { padding: 48px 20px 32px; }
   .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
   .cta-actions { flex-direction: column; align-items: center; }
+  .cta-actions a { width: 100%; justify-content: center; }
   .form-row { grid-template-columns: 1fr; }
-  .page-hero { padding: 120px 0 60px; }
+  .page-hero { padding: 100px 0 56px; }
+
+  /* ── Detail section inline-grid overrides ── */
+  #nairobi .section-inner > div,
+  #mombasa .section-inner > div,
+  #denmark .section-inner > div {
+    grid-template-columns: 1fr !important;
+    gap: 36px !important;
+  }
+  /* Reorder so text comes first on Mombasa (image was col-1) */
+  #mombasa .section-inner > div { display: flex !important; flex-direction: column !important; }
+  #mombasa .section-inner > div > div:first-child { order: 2; }
+  #mombasa .section-inner > div > div:last-child  { order: 1; }
+
+  /* Section detail images */
+  #nairobi img[style*="height:500px"],
+  #mombasa img[style*="height:500px"],
+  #denmark img[style*="height:500px"] { height: 240px !important; }
+
+  /* Section detail vertical padding */
+  #nairobi, #mombasa, #denmark { padding: 64px 0 !important; }
+
+  /* Card padding reductions */
+  .division-card  { padding: 40px 24px; min-height: auto; }
+  .service-card   { padding: 32px 24px; }
+  .location-card  { padding: 32px 20px; }
+  .team-card      { padding: 40px 28px; }
+  .about-card     { padding: 28px 20px; }
+
+  /* About card stack: single column */
+  .about-card-stack { grid-template-columns: 1fr; }
+
+  /* Fashion metrics: single column */
+  .fashion-metrics { grid-template-columns: 1fr; }
+  .fashion-card-main { padding: 40px 28px; }
+
+  /* Nav toggle menu drop-down position */
+  .nav-links[style*="flex"] {
+    top: 64px !important;
+    padding: 20px !important;
+    gap: 16px !important;
+  }
+
+  /* Inquiry modal */
+  #inquiryModal { max-height: 95vh; }
+  #inquiryModal > div:first-child  { padding: 24px 20px 20px !important; }
+  #inquiryModal > div:nth-child(2) { padding: 24px 20px 28px !important; }
+  #inquiryModal > div:first-child > div:nth-child(2) { font-size: 22px !important; }
+  /* Name/Phone row → single column */
+  #inquiryForm > div:first-child { grid-template-columns: 1fr !important; }
+}
+
+/* ── EXTRA SMALL PHONES (≤ 480px) ── */
+@media (max-width: 480px) {
+  nav { height: 60px; }
+  nav.scrolled { height: 56px; }
+  .nav-logo img { height: 100px; }
+
+  .page-hero { padding: 88px 0 44px; }
+  .page-hero h1 { font-size: clamp(28px, 9vw, 40px); }
+  .page-hero p { font-size: 14px; }
+
+  .section-inner, .page-hero-inner { padding: 0 16px; }
+
+  .section-title { font-size: clamp(26px, 8vw, 40px) !important; }
+
+  /* Location cards */
+  .location-card { padding: 24px 16px; }
+  .location-city { font-size: 26px; }
+  .location-img  { height: 150px; }
+
+  /* Detail section images */
+  #nairobi img[style*="height:500px"],
+  #mombasa img[style*="height:500px"],
+  #denmark img[style*="height:500px"] { height: 200px !important; }
+
+  /* About cards */
+  .about-card-value { font-size: 28px; }
+  .about-card-num   { font-size: 40px; }
+
+  /* Division cards */
+  .division-card  { padding: 32px 18px; }
+  .division-title { font-size: 30px; }
+  .division-num   { font-size: 80px; }
+  .division-icon  { width: 44px; height: 44px; margin-bottom: 24px; }
+
+  /* Service cards */
+  .service-card { padding: 28px 20px; }
+
+  /* Team cards */
+  .team-card  { padding: 32px 20px; }
+  .team-name  { font-size: 22px; }
+  .team-avatar { width: 60px; height: 60px; font-size: 22px; }
+
+  /* CTA */
+  .cta-inner { padding: 0 16px; }
+  .cta-title { font-size: clamp(30px, 9vw, 48px); }
+
+  /* Footer */
+  footer { padding: 40px 16px 24px; }
+  .footer-brand-name { font-size: 18px; }
+
+  /* Inquiry modal */
+  #inquiryModal { border-radius: 0; max-height: 100vh; height: 100dvh; }
+  #inquiryOverlay { align-items: flex-end !important; padding: 0 !important; }
+  #inquiryModal > div:first-child  { padding: 20px 16px 16px !important; }
+  #inquiryModal > div:nth-child(2) { padding: 20px 16px 24px !important; }
+
+  /* Divisions banner */
+  .div-items { gap: 20px; }
+  .div-item  { font-size: 11px; }
+
+  /* Values grid: single column on very small screens */
+  .values-grid { grid-template-columns: 1fr; }
+  .value-card  { padding: 32px 20px; }
+
+  /* Contact section */
+  .contact-form { padding: 32px 20px; }
 }
 
 
 /* ── PAGE HERO IMAGE BACKGROUND ── */
 .page-hero {
-  background-image: url('images/map.jpg');
+  background-image: url('images/maphero.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -400,7 +519,6 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
   </ul>
   <button class="nav-toggle" id="navToggle"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
 </nav>
-
 
 <!-- PAGE HERO -->
 <section class="page-hero">
@@ -767,7 +885,18 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
 <script>
 const nav = document.getElementById('mainNav');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
-document.getElementById('navToggle').addEventListener('click', () => { const l = document.querySelector('.nav-links'); l.style.cssText = l.style.display==='flex'?'':'display:flex;flex-direction:column;position:fixed;top:76px;left:0;right:0;background:rgba(22,28,28,0.98);padding:24px;gap:20px;z-index:999;border-bottom:1px solid rgba(196,169,106,0.2)'; });
+document.getElementById('navToggle').addEventListener('click', () => {
+  const l = document.querySelector('.nav-links');
+  const navH = document.getElementById('mainNav').offsetHeight;
+  if (l.style.display === 'flex') {
+    l.style.cssText = '';
+  } else {
+    l.style.cssText = `display:flex;flex-direction:column;position:fixed;top:${navH}px;left:0;right:0;background:rgba(22,28,28,0.98);padding:20px;gap:16px;z-index:999;border-bottom:1px solid rgba(196,169,106,0.2);`;
+  }
+});
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => { if (window.innerWidth <= 768) document.querySelector('.nav-links').style.cssText = ''; });
+});
 document.querySelectorAll('.reveal').forEach(el => new IntersectionObserver((e) => { e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }); }, {threshold:0.12}).observe(el));
 </script>
 </body>

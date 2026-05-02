@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact — Danley Logistics</title>
+<link rel="icon" type="image/x-icon" href="images/white.png">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ── DANLEY LOGISTICS — SHARED STYLESHEET ── */
@@ -345,31 +346,86 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
 }
 @media (max-width: 768px) {
-  nav { padding: 0 24px; }
+  nav { padding: 0 20px; }
   .nav-links { display: none; }
   .nav-toggle { display: block; }
-  .section-inner, .page-hero-inner { padding: 0 24px; }
-  .hero-content { padding: 0 24px; }
-  .hero-stats { right: 24px; gap: 24px; }
-  .hero-scroll { left: 24px; }
-  .divisions-banner { padding: 16px 24px; flex-direction: column; gap: 12px; }
+  .section-inner, .page-hero-inner { padding: 0 20px; }
+  .hero-content { padding: 0 20px; }
+  .hero-stats { right: 20px; gap: 20px; }
+  .hero-scroll { left: 20px; }
+  .divisions-banner { padding: 16px 20px; flex-direction: column; gap: 12px; }
   .services-grid, .locations-grid { grid-template-columns: 1fr; }
   .services-header { flex-direction: column; align-items: flex-start; gap: 20px; }
   .team-grid { grid-template-columns: 1fr; }
   .team-card-general { grid-column: span 1; flex-direction: column; }
   .values-grid { grid-template-columns: 1fr 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-  footer { padding: 48px 24px 32px; }
+  footer { padding: 48px 20px 32px; }
   .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
   .cta-actions { flex-direction: column; align-items: center; }
+  .cta-actions a { width: 100%; justify-content: center; }
   .form-row { grid-template-columns: 1fr; }
-  .page-hero { padding: 120px 0 60px; }
+  .page-hero { padding: 100px 0 56px; }
+
+  /* ── Contact section ── */
+  .contact-section { padding: 60px 0; }
+  .contact-grid { gap: 40px; }
+  .contact-form { padding: 36px 24px; }
+  .contact-info { padding-top: 0; }
+  .contact-info-body { font-size: 14px; margin-bottom: 28px; }
+
+  /* Make phone numbers and emails tappable-friendly */
+  .contact-detail-value { font-size: 16px; }
+  .contact-detail { gap: 14px; margin-bottom: 20px; }
+  .contact-detail-icon { width: 36px; height: 36px; flex-shrink: 0; }
+
+  /* Offices block */
+  .contact-info > div[style*="margin-top:40px"] { margin-top: 28px !important; padding-top: 24px !important; }
+}
+
+/* ── EXTRA SMALL PHONES (≤ 480px) ── */
+@media (max-width: 480px) {
+  nav { height: 60px; }
+  nav.scrolled { height: 56px; }
+  .nav-logo img { height: 100px; }
+
+  .page-hero { padding: 84px 0 44px; }
+  .page-hero h1 { font-size: clamp(28px, 9vw, 40px); }
+  .page-hero p { font-size: 14px; }
+
+  .section-inner, .page-hero-inner { padding: 0 16px; }
+
+  /* Contact form */
+  .contact-section { padding: 48px 0; }
+  .contact-form { padding: 28px 16px; }
+  .contact-form > div:first-child  { font-size: 9px; }
+  .contact-form > div:nth-child(2) { font-size: 22px !important; margin-bottom: 24px !important; }
+  .form-input, .form-select, .form-textarea { padding: 13px 14px; font-size: 16px; /* prevent iOS zoom */ }
+  .form-submit { padding: 15px 28px; font-size: 12px; }
+  .form-group { margin-bottom: 16px; }
+
+  /* Contact info */
+  .contact-info .section-title { font-size: clamp(26px, 8vw, 38px) !important; }
+  .contact-detail-value { font-size: 15px; }
+  .contact-detail-icon { width: 34px; height: 34px; }
+
+  /* Footer */
+  footer { padding: 40px 16px 24px; }
+  .footer-brand-name { font-size: 18px; }
+
+  /* Divisions banner */
+  .div-items { gap: 20px; }
+  .div-item  { font-size: 11px; }
+
+  /* Values */
+  .values-grid { grid-template-columns: 1fr; }
+  .value-card  { padding: 32px 20px; }
 }
 
 
 /* ── PAGE HERO IMAGE BACKGROUND ── */
 .page-hero {
-  background-image: url('images/contactus.jpg');
+  background-image: url('images/contactushero.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -576,11 +632,21 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
     <div class="footer-est">Est. 2012 — Nairobi, Kenya</div>
   </div>
 </footer>
-
 <script>
 const nav = document.getElementById('mainNav');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
-document.getElementById('navToggle').addEventListener('click', () => { const l = document.querySelector('.nav-links'); l.style.cssText = l.style.display==='flex'?'':'display:flex;flex-direction:column;position:fixed;top:76px;left:0;right:0;background:rgba(22,28,28,0.98);padding:24px;gap:20px;z-index:999;border-bottom:1px solid rgba(196,169,106,0.2)'; });
+document.getElementById('navToggle').addEventListener('click', () => {
+  const l = document.querySelector('.nav-links');
+  const navH = document.getElementById('mainNav').offsetHeight;
+  if (l.style.display === 'flex') {
+    l.style.cssText = '';
+  } else {
+    l.style.cssText = `display:flex;flex-direction:column;position:fixed;top:${navH}px;left:0;right:0;background:rgba(22,28,28,0.98);padding:20px;gap:16px;z-index:999;border-bottom:1px solid rgba(196,169,106,0.2);`;
+  }
+});
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => { if (window.innerWidth <= 768) document.querySelector('.nav-links').style.cssText = ''; });
+});
 document.querySelectorAll('.reveal').forEach(el => new IntersectionObserver((e) => { e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }); }, {threshold:0.12}).observe(el));
 </script>
 </body>

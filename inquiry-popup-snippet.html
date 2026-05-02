@@ -1,3 +1,58 @@
+<!-- INQUIRY POPUP — MOBILE STYLES -->
+<style>
+@media (max-width: 600px) {
+  /* Overlay: anchor to bottom like a bottom sheet */
+  #inquiryOverlay {
+    align-items: flex-end !important;
+    padding: 0 !important;
+  }
+
+  /* Modal: full width, rounded top corners, taller max-height */
+  #inquiryModal {
+    max-width: 100% !important;
+    max-height: 92vh !important;
+    border-radius: 16px 16px 0 0;
+    transform: translateY(100%) scale(1) !important; /* slides up from below */
+  }
+
+  /* Header padding */
+  #inquiryModal > div:first-child {
+    padding: 24px 20px 20px !important;
+    border-radius: 16px 16px 0 0;
+  }
+  #inquiryModal > div:first-child > div:first-child {
+    font-size: 9px !important;
+  }
+  #inquiryModal > div:first-child > div:nth-child(2) {
+    font-size: 24px !important;
+  }
+
+  /* Form body padding */
+  #inquiryModal > div:last-child {
+    padding: 20px 20px 32px !important;
+  }
+
+  /* Name + Phone row: stack to single column */
+  #inquiryModal div[style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  /* Inputs, select, textarea: larger touch targets */
+  #inquiryModal input,
+  #inquiryModal select,
+  #inquiryModal textarea {
+    font-size: 16px !important; /* prevents iOS zoom on focus */
+    padding: 14px 14px !important;
+  }
+
+  /* Submit button */
+  #inquiryModal button[type="submit"] {
+    padding: 16px 20px !important;
+    font-size: 13px !important;
+  }
+}
+</style>
 
 <div id="inquiryOverlay" style="
   position:fixed;inset:0;background:rgba(10,20,20,0.88);
@@ -29,7 +84,7 @@
 
     <!-- FORM BODY -->
     <div style="padding:36px 44px 40px;">
-      <form id="inquiryForm" action="mailto:info@danleylogistics.com" method="POST" enctype="text/plain">
+      <form id="contactForm">
 
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px;">
           <div>
@@ -123,10 +178,15 @@
   var closeBtn = document.getElementById('inquiryClose');
   var subject  = document.getElementById('inqSubject');
 
+  function isMobile() { return window.innerWidth <= 600; }
+
+  function openTransform()  { return isMobile() ? 'translateY(0)'    : 'translateY(0) scale(1)'; }
+  function closedTransform(){ return isMobile() ? 'translateY(100%)' : 'translateY(28px) scale(0.98)'; }
+
   function open(topic) {
     overlay.style.opacity = '1';
     overlay.style.pointerEvents = 'all';
-    modal.style.transform = 'translateY(0) scale(1)';
+    modal.style.transform = openTransform();
     document.body.style.overflow = 'hidden';
     if (topic && subject) {
       for (var i = 0; i < subject.options.length; i++) {
@@ -147,9 +207,17 @@
   function close() {
     overlay.style.opacity = '0';
     overlay.style.pointerEvents = 'none';
-    modal.style.transform = 'translateY(28px) scale(0.98)';
+    modal.style.transform = closedTransform();
     document.body.style.overflow = '';
   }
+
+  /* Set correct initial closed transform on load */
+  modal.style.transform = closedTransform();
+  window.addEventListener('resize', function() {
+    if (overlay.style.pointerEvents === 'none') {
+      modal.style.transform = closedTransform();
+    }
+  });
 
   /* Trigger buttons */
   document.querySelectorAll('.open-inquiry').forEach(function(el) {

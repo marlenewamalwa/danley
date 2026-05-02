@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Euro-savage — Danley Logistics</title>
+<link rel="icon" type="image/x-icon" href="images/white.png">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -32,8 +33,17 @@ body { font-family: var(--font-body); background: var(--dark); color: var(--crea
 ::-webkit-scrollbar-track { background: var(--dark); }
 ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
 
-/* NAV */
-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0 60px; display: flex; align-items: center; justify-content: space-between; height: 76px; background: rgba(22,28,28,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(196,169,106,0.15); transition: all 0.4s var(--ease); }
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 0 60px;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 76px;
+  background: rgba(22,28,28,0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(196,169,106,0.15);
+  transition: all 0.4s var(--ease);
+}
 nav.scrolled { height: 64px; border-bottom-color: rgba(196,169,106,0.25); }
 .nav-logo { display: flex; align-items: center; text-decoration: none; gap: 12px; }
 .nav-logo img { height: 150px; width: auto; }
@@ -48,7 +58,7 @@ nav.scrolled { height: 64px; border-bottom-color: rgba(196,169,106,0.25); }
 .nav-toggle { display: none; background: none; border: none; cursor: pointer; color: var(--white); padding: 4px; }
 
 /* PAGE HERO */
-.page-hero { padding: 140px 0 100px; position: relative; overflow: hidden; background-image: url('images/jeans.jpg'); background-size: cover; background-position: center top; background-repeat: no-repeat; }
+.page-hero { padding: 140px 0 100px; position: relative; overflow: hidden; background-image: url('images/jeanshero.jpg'); background-size: cover; background-position: center top; background-repeat: no-repeat; }
 .page-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(10,10,8,0.92) 0%, rgba(20,18,10,0.80) 55%, rgba(26,26,14,0.55) 100%); z-index: 1; }
 .page-hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(196,169,106,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(196,169,106,0.04) 1px, transparent 1px); background-size: 80px 80px; mask-image: radial-gradient(ellipse 80% 80% at 40% 50%, black, transparent); z-index: 2; }
 .page-hero-inner { position: relative; z-index: 3; max-width: 1240px; margin: 0 auto; padding: 0 60px; }
@@ -177,6 +187,167 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
   .page-hero { padding: 120px 0 80px; }
   .hero-badges { flex-direction: column; }
 }
+
+/* ══════════════════════════════════════════
+   MOBILE — ≤480px
+   ══════════════════════════════════════════ */
+@media (max-width: 480px) {
+
+  /* Nav */
+  nav { padding: 0 18px; height: 64px; }
+  nav.scrolled { height: 56px; }
+  .nav-logo img { height: 100px; }
+  .nav-brand { font-size: 16px; }
+  .nav-sub { font-size: 8px; }
+
+  /* Mobile menu panel */
+  .nav-mobile-open {
+    display: flex !important;
+    flex-direction: column;
+    position: fixed;
+    top: 64px;
+    left: 0; right: 0;
+    background: rgba(14,24,24,0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 28px 24px 36px;
+    gap: 0;
+    z-index: 998;
+    border-bottom: 1px solid rgba(196,169,106,0.2);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  }
+  .nav-mobile-open li { border-bottom: 1px solid rgba(196,169,106,0.08); }
+  .nav-mobile-open li:last-child { border-bottom: none; }
+  .nav-mobile-open a {
+    display: block;
+    padding: 16px 4px;
+    font-size: 15px;
+    letter-spacing: 0.18em;
+    color: rgba(242,239,233,0.75) !important;
+  }
+  .nav-mobile-open a.nav-cta {
+    margin-top: 16px;
+    text-align: center;
+    padding: 14px 24px;
+    background: transparent;
+    border: 1px solid var(--gold) !important;
+    color: var(--gold) !important;
+  }
+
+  /* Page hero */
+  .page-hero { padding: 100px 0 56px; }
+  .page-hero-inner { padding: 0 20px; }
+  .page-hero h1 { font-size: clamp(34px, 10vw, 52px); line-height: 1.1; }
+  .page-hero-sub { font-size: 14px; margin-bottom: 28px; }
+  .hero-badges { flex-direction: column; gap: 8px; }
+  .hero-badge { font-size: 9px; padding: 6px 14px; align-self: flex-start; }
+
+  /* Stats bar */
+  .stats-bar { grid-template-columns: 1fr 1fr; padding: 0 20px; }
+  .stat-item { padding: 28px 0; }
+  .stat-val { font-size: 34px; }
+  .stat-item:nth-child(2) { border-right: none; }
+  .stat-item:nth-child(1),
+  .stat-item:nth-child(2) { border-bottom: 1px solid rgba(22,28,28,0.15); }
+
+  /* Section containers */
+  .section-inner { padding: 0 20px; }
+  .section-title { font-size: clamp(28px, 8vw, 42px); }
+
+  /* Concept section */
+  .concept-grid { grid-template-columns: 1fr; gap: 32px; }
+  .concept-grid > div:first-child > div[style*="display:flex;gap:16px"] {
+    flex-direction: column;
+  }
+  .concept-grid img { height: 220px !important; }
+
+  /* Section padding for content sections */
+  section[style*="padding:100px 0"] { padding: 64px 0 !important; }
+
+  /* Inventory cards */
+  .inventory-grid { grid-template-columns: 1fr; gap: 3px; }
+  .inventory-card { padding: 32px 24px; }
+  .inventory-title { font-size: 22px; }
+
+  /* How it works */
+  .how-grid { grid-template-columns: 1fr; gap: 3px; }
+  .how-step { padding: 32px 24px; }
+  .how-num { font-size: 52px; margin-bottom: 12px; }
+  .how-connector { display: none; }
+
+  /* Advantage section */
+  .advantage-grid { grid-template-columns: 1fr; gap: 36px; }
+  .advantage-grid > div:first-child > div[style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 3px !important;
+  }
+  .advantage-item { padding: 20px 16px; gap: 16px; }
+  .advantage-icon { width: 36px; height: 36px; flex-shrink: 0; }
+
+  /* Buttons */
+  .btn-primary, .btn-secondary, .btn-outline-gold {
+    width: 100%;
+    justify-content: center;
+    padding: 15px 20px;
+    font-size: 12px;
+  }
+
+  /* CTA */
+  .cta { padding: 72px 0; }
+  .cta-inner { padding: 0 20px; }
+  .cta-title { font-size: clamp(32px, 9vw, 48px); }
+  .cta-sub { font-size: 14px; margin-bottom: 32px; }
+  .cta-actions { flex-direction: column; align-items: stretch; gap: 12px; }
+
+  /* Footer */
+  footer { padding: 44px 20px 28px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+  .footer-brand-name { font-size: 18px; }
+  .footer-tagline { font-size: 15px; }
+  .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+
+  /* Modal */
+  #inquiryModal {
+    max-width: 100% !important;
+    max-height: 95vh !important;
+  }
+  #inquiryModal > div:first-child { padding: 24px 20px 20px !important; }
+  #inquiryModal > div:last-child { padding: 24px 20px 28px !important; }
+  #inquiryModal div[style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+  #inquiryOverlay { align-items: flex-end !important; padding: 0 !important; }
+}
+
+/* ══════════════════════════════════════════
+   TABLET — 481–768px
+   ══════════════════════════════════════════ */
+@media (min-width: 481px) and (max-width: 768px) {
+
+  nav { padding: 0 28px; }
+  .nav-logo img { height: 110px; }
+  .page-hero-inner, .section-inner { padding: 0 28px; }
+  .page-hero { padding: 110px 0 68px; }
+  .cta-inner { padding: 0 28px; }
+
+  .concept-grid { grid-template-columns: 1fr; gap: 40px; }
+  .concept-grid img { height: 300px !important; }
+  .advantage-grid { grid-template-columns: 1fr; gap: 40px; }
+  .advantage-grid > div:first-child > div[style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .how-grid { grid-template-columns: 1fr 1fr; }
+  .how-connector { display: none; }
+
+  .btn-primary, .btn-secondary, .btn-outline-gold {
+    width: 100%;
+    justify-content: center;
+  }
+  .cta-actions { flex-direction: column; align-items: stretch; gap: 12px; }
+
+  footer { padding: 48px 28px 32px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+}
 </style>
 </head>
 <body>
@@ -195,6 +366,7 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
   </ul>
   <button class="nav-toggle" id="navToggle"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
 </nav>
+
 
 
 <!-- PAGE HERO -->
@@ -650,7 +822,18 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
 <script>
 const nav = document.getElementById('mainNav');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
-document.getElementById('navToggle').addEventListener('click', () => { const l = document.querySelector('.nav-links'); l.style.cssText = l.style.display==='flex'?'':'display:flex;flex-direction:column;position:fixed;top:76px;left:0;right:0;background:rgba(22,28,28,0.98);padding:24px;gap:20px;z-index:999;border-bottom:1px solid rgba(196,169,106,0.2)'; });
+document.getElementById('navToggle').addEventListener('click', () => {
+  const l = document.querySelector('.nav-links');
+  const navH = document.getElementById('mainNav').offsetHeight;
+  if (l.style.display === 'flex') {
+    l.style.cssText = '';
+  } else {
+    l.style.cssText = `display:flex;flex-direction:column;position:fixed;top:${navH}px;left:0;right:0;background:rgba(22,28,28,0.98);padding:20px;gap:16px;z-index:999;border-bottom:1px solid rgba(196,169,106,0.2);`;
+  }
+});
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => { if (window.innerWidth <= 768) document.querySelector('.nav-links').style.cssText = ''; });
+});
 document.querySelectorAll('.reveal').forEach(el => new IntersectionObserver((e) => { e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }); }, {threshold:0.12}).observe(el));
 </script>
 </body>

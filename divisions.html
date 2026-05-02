@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Divisions — Danley Logistics</title>
+<link rel="icon" type="image/x-icon" href="images/white.png">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -32,8 +33,17 @@ body { font-family: var(--font-body); background: var(--dark); color: var(--crea
 ::-webkit-scrollbar-track { background: var(--dark); }
 ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
 
-/* NAV */
-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0 60px; display: flex; align-items: center; justify-content: space-between; height: 76px; background: rgba(22,28,28,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(196,169,106,0.15); transition: all 0.4s var(--ease); }
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 0 60px;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 76px;
+  background: rgba(22,28,28,0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(196,169,106,0.15);
+  transition: all 0.4s var(--ease);
+}
 nav.scrolled { height: 64px; border-bottom-color: rgba(196,169,106,0.25); }
 .nav-logo { display: flex; align-items: center; text-decoration: none; gap: 12px; }
 .nav-logo img { height: 150px; width: auto; }
@@ -48,7 +58,7 @@ nav.scrolled { height: 64px; border-bottom-color: rgba(196,169,106,0.25); }
 .nav-toggle { display: none; background: none; border: none; cursor: pointer; color: var(--white); padding: 4px; }
 
 /* PAGE HERO */
-.page-hero { padding: 140px 0 80px; background: linear-gradient(135deg, #0E2020 0%, #1C3636 50%, #254545 100%); position: relative; overflow: hidden; background-image: url('images/ship.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; }
+.page-hero { padding: 140px 0 80px; background: linear-gradient(135deg, #0E2020 0%, #1C3636 50%, #254545 100%); position: relative; overflow: hidden; background-image: url('images/shiphero.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; }
 .page-hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(196,169,106,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(196,169,106,0.04) 1px, transparent 1px); background-size: 80px 80px; mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent); }
 .page-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(10,24,24,0.88) 0%, rgba(28,54,54,0.72) 60%, rgba(28,54,54,0.4) 100%); z-index: 1; }
 .page-hero-inner { position: relative; z-index: 3; max-width: 1240px; margin: 0 auto; padding: 0 60px; }
@@ -135,22 +145,53 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
 
 @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
 
+
+/* TABLET */
 @media (max-width: 1024px) {
   .nav-links { gap: 20px; }
   .divisions-grid, .deep-dive-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .division-card { min-height: 460px; }
 }
+
+/* MOBILE */
 @media (max-width: 768px) {
-  nav { padding: 0 24px; }
+   nav { padding: 0 20px; }
   .nav-links { display: none; }
   .nav-toggle { display: block; }
-  .section-inner, .page-hero-inner { padding: 0 24px; }
+  .page-hero { padding: 110px 0 56px; }
+  .page-hero h1 { font-size: clamp(32px, 9vw, 52px); }
+  .page-hero p { font-size: 14px; }
+
+  .section-inner, .page-hero-inner { padding: 0 20px; }
+
+  .divisions { padding: 64px 0; }
+  .divisions-header { margin-bottom: 40px; }
+  .divisions-grid { grid-template-columns: 1fr; }
+  .division-card { padding: 36px 24px; min-height: unset; }
+  .division-num { font-size: 72px; }
+  .division-title { font-size: 28px; }
+  .division-body { font-size: 13px; }
+
+  .deep-dive-grid { grid-template-columns: 1fr; gap: 40px; }
+
+  .cta { padding: 80px 0; }
+  .cta-inner { padding: 0 20px; }
+  .cta-actions { flex-direction: column; align-items: stretch; gap: 12px; }
+  .cta-actions .btn-primary, .cta-actions .btn-secondary { justify-content: center; min-height: 48px; }
+
+  footer { padding: 48px 20px 32px; }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-  footer { padding: 48px 24px 32px; }
-  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-  .cta-actions { flex-direction: column; align-items: center; }
-  .page-hero { padding: 120px 0 60px; }
-  .division-card { padding: 44px 32px; min-height: auto; }
+  .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+
+  .reveal { transform: translateY(18px); transition-duration: 0.6s; }
+}
+
+/* TINY PHONES */
+@media (max-width: 390px) {
+  .division-title { font-size: 24px; }
+  .nav-logo img { height: 80px; }
+  .stats-grid-2col { grid-template-columns: 1fr !important; }
 }
 </style>
 </head>
@@ -160,7 +201,7 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
   <a href="index.html" class="nav-logo">
     <img src="images/logo-bg.png" alt="Danley Logistics">
   </a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="mainNavLinks">
     <li><a href="about.html">About</a></li>
     <li><a href="divisions.html">Divisions</a></li>
     <li><a href="services.html">Services</a></li>
@@ -168,7 +209,10 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
     <li><a href="locations.html">Locations</a></li>
     <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
   </ul>
-  <button class="nav-toggle" id="navToggle"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+  <button class="nav-toggle" id="navToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mainNavLinks">
+    <svg class="icon-menu" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" style="display:none"><path d="M6 6l12 12M18 6l-12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>
 </nav>
 
 
@@ -241,7 +285,7 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
           <p>Our core logistics division has been operating since 2012, building deep expertise in the Kenyan and East African trade environment. We understand the terrain — literally and figuratively. From the A104 corridor to Mombasa port processes, our team has navigated every scenario the industry can throw at a logistics operation.</p>
           <p style="margin-top:14px;">We serve importers, exporters, manufacturers, distributors, and retailers — any business that needs cargo to move reliably and cost-effectively. Our integrated capability means one team handles the full journey, eliminating the coordination failures that happen when clients piece together multiple providers.</p>
         </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:32px;">
+        <div class="stats-grid-2col" style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:32px;">
           <div style="background:var(--teal);padding:24px 20px;"><div style="font-family:var(--font-display);font-size:36px;font-weight:700;color:var(--white);">12+</div><div style="font-family:var(--font-cond);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(242,239,233,0.5);margin-top:4px;">Years Experience</div></div>
           <div style="background:var(--teal-mid);padding:24px 20px;"><div style="font-family:var(--font-display);font-size:36px;font-weight:700;color:var(--white);">5</div><div style="font-family:var(--font-cond);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(242,239,233,0.5);margin-top:4px;">Core Services</div></div>
           <div style="background:var(--teal-mid);padding:24px 20px;"><div style="font-family:var(--font-display);font-size:36px;font-weight:700;color:var(--white);">2</div><div style="font-family:var(--font-cond);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(242,239,233,0.5);margin-top:4px;">Kenya Hubs</div></div>
@@ -268,6 +312,9 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
     </div>
   </div>
 </section>
+
+<!-- MOBILE MENU OVERLAY -->
+<div class="mobile-menu-overlay" aria-hidden="true"></div>
 
 <footer>
   <div class="footer-grid">
@@ -311,11 +358,21 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
     <div class="footer-est">Est. 2012 — Nairobi, Kenya</div>
   </div>
 </footer>
-
 <script>
 const nav = document.getElementById('mainNav');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
-document.getElementById('navToggle').addEventListener('click', () => { const l = document.querySelector('.nav-links'); l.style.cssText = l.style.display==='flex'?'':'display:flex;flex-direction:column;position:fixed;top:76px;left:0;right:0;background:rgba(22,28,28,0.98);padding:24px;gap:20px;z-index:999;border-bottom:1px solid rgba(196,169,106,0.2)'; });
+document.getElementById('navToggle').addEventListener('click', () => {
+  const l = document.querySelector('.nav-links');
+  const navH = document.getElementById('mainNav').offsetHeight;
+  if (l.style.display === 'flex') {
+    l.style.cssText = '';
+  } else {
+    l.style.cssText = `display:flex;flex-direction:column;position:fixed;top:${navH}px;left:0;right:0;background:rgba(22,28,28,0.98);padding:20px;gap:16px;z-index:999;border-bottom:1px solid rgba(196,169,106,0.2);`;
+  }
+});
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => { if (window.innerWidth <= 768) document.querySelector('.nav-links').style.cssText = ''; });
+});
 document.querySelectorAll('.reveal').forEach(el => new IntersectionObserver((e) => { e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }); }, {threshold:0.12}).observe(el));
 </script>
 </body>

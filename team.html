@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Team — Danley Logistics</title>
+<link rel="icon" type="image/x-icon" href="images/white.png">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ── DANLEY LOGISTICS — SHARED STYLESHEET ── */
@@ -335,7 +336,7 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
 @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.7); } }
 
-/* ── RESPONSIVE ── */
+/* TABLET */
 @media (max-width: 1024px) {
   .nav-links { gap: 20px; }
   .about-grid, .fashion-inner, .contact-grid { grid-template-columns: 1fr; gap: 60px; }
@@ -343,33 +344,60 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
   .services-grid { grid-template-columns: 1fr 1fr; }
   .values-grid { grid-template-columns: 1fr 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .team-grid { grid-template-columns: 1fr 1fr; }
 }
+
+/* MOBILE */
 @media (max-width: 768px) {
-  nav { padding: 0 24px; }
+ nav { padding: 0 20px; }
   .nav-links { display: none; }
   .nav-toggle { display: block; }
-  .section-inner, .page-hero-inner { padding: 0 24px; }
-  .hero-content { padding: 0 24px; }
-  .hero-stats { right: 24px; gap: 24px; }
-  .hero-scroll { left: 24px; }
-  .divisions-banner { padding: 16px 24px; flex-direction: column; gap: 12px; }
+
+  .page-hero { padding: 110px 0 56px; }
+  .page-hero h1 { font-size: clamp(32px, 9vw, 52px); }
+  .page-hero p { font-size: 14px; }
+
+  .section-inner, .page-hero-inner { padding: 0 20px; }
+  .divisions-banner { padding: 16px 20px; flex-direction: column; gap: 12px; }
+
+  .team { padding: 64px 0; }
+  .team-header { margin-bottom: 40px; }
+  .team-grid { grid-template-columns: 1fr; }
+  .team-card { padding: 40px 28px; min-height: unset !important; }
+  .team-card-general { grid-column: span 1; flex-direction: column; align-items: flex-start; gap: 20px; padding: 32px 28px; }
+  .team-general-email { font-size: 14px; word-break: break-all; }
+  .team-contact-item { font-size: 13px; }
+
+  .cta { padding: 80px 0; }
+  .cta-inner { padding: 0 20px; }
+  .cta-actions { flex-direction: column; align-items: stretch; gap: 12px; }
+  .cta-actions .btn-primary, .cta-actions .btn-secondary { justify-content: center; min-height: 48px; }
+
+  footer { padding: 48px 20px 32px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+
   .services-grid, .locations-grid { grid-template-columns: 1fr; }
   .services-header { flex-direction: column; align-items: flex-start; gap: 20px; }
-  .team-grid { grid-template-columns: 1fr; }
-  .team-card-general { grid-column: span 1; flex-direction: column; }
   .values-grid { grid-template-columns: 1fr 1fr; }
-  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-  footer { padding: 48px 24px 32px; }
-  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-  .cta-actions { flex-direction: column; align-items: center; }
   .form-row { grid-template-columns: 1fr; }
-  .page-hero { padding: 120px 0 60px; }
+
+  .culture-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+  .culture-grid img { height: 260px !important; }
+  .reveal { transform: translateY(18px); transition-duration: 0.6s; }
+}
+
+/* TINY PHONES */
+@media (max-width: 390px) {
+  .nav-logo img { height: 80px; }
+  .values-grid { grid-template-columns: 1fr; }
+  .team-name { font-size: 22px; }
 }
 
 
 /* ── PAGE HERO IMAGE BACKGROUND ── */
 .page-hero {
-  background-image: url('images/team.jpg');
+  background-image: url('images/teamhero.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -445,7 +473,7 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
       <div class="team-card reveal reveal-delay-1" style="min-height:480px;">
         <div class="team-region">Kenya Market</div>
         <div class="team-avatar">
-          <img src="/images/team-vivien.jpg" alt="Vivien Wamalwa">
+          <img src="images/team-vivien.jpg" alt="Vivien Wamalwa">
         </div>
         <div class="team-name">Vivien Wamalwa</div>
         <div class="team-role">Kenya Market Representative</div>
@@ -481,7 +509,7 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
 <!-- CULTURE SECTION -->
 <section style="background:var(--cream);padding:100px 0;">
   <div class="section-inner">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
+    <div class="culture-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
       <div class="reveal">
         <div class="section-eyebrow"><div class="section-eyebrow-line"></div><span class="section-eyebrow-text">Working at Danley</span></div>
         <h2 class="section-title" style="color:var(--teal)">Small team,<br><em>big accountability.</em></h2>
@@ -511,6 +539,9 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
     </div>
   </div>
 </section>
+
+<!-- MOBILE MENU OVERLAY -->
+<div class="mobile-menu-overlay" aria-hidden="true"></div>
 
 <footer>
   <div class="footer-grid">
@@ -558,7 +589,18 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
 <script>
 const nav = document.getElementById('mainNav');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
-document.getElementById('navToggle').addEventListener('click', () => { const l = document.querySelector('.nav-links'); l.style.cssText = l.style.display==='flex'?'':'display:flex;flex-direction:column;position:fixed;top:76px;left:0;right:0;background:rgba(22,28,28,0.98);padding:24px;gap:20px;z-index:999;border-bottom:1px solid rgba(196,169,106,0.2)'; });
+document.getElementById('navToggle').addEventListener('click', () => {
+  const l = document.querySelector('.nav-links');
+  const navH = document.getElementById('mainNav').offsetHeight;
+  if (l.style.display === 'flex') {
+    l.style.cssText = '';
+  } else {
+    l.style.cssText = `display:flex;flex-direction:column;position:fixed;top:${navH}px;left:0;right:0;background:rgba(22,28,28,0.98);padding:20px;gap:16px;z-index:999;border-bottom:1px solid rgba(196,169,106,0.2);`;
+  }
+});
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => { if (window.innerWidth <= 768) document.querySelector('.nav-links').style.cssText = ''; });
+});
 document.querySelectorAll('.reveal').forEach(el => new IntersectionObserver((e) => { e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }); }, {threshold:0.12}).observe(el));
 </script>
 </body>

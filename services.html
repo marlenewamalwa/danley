@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Services — Danley Logistics</title>
+<link rel="icon" type="image/x-icon" href="images/white.png">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ── DANLEY LOGISTICS — SHARED STYLESHEET ── */
@@ -389,9 +390,160 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
 }
 
 
+/* ══════════════════════════════════════════
+   MOBILE — ≤480px
+   ══════════════════════════════════════════ */
+@media (max-width: 480px) {
+nav { height: 60px; }
+  nav.scrolled { height: 56px; }
+  .nav-logo img { height: 100px; }
+  /* Page hero */
+  .page-hero { padding: 100px 0 50px; }
+  .page-hero-inner { padding: 0 20px; }
+  .page-hero h1 { font-size: clamp(32px, 9vw, 48px); }
+  .page-hero p { font-size: 14px; }
+
+  /* Section containers */
+  .section-inner { padding: 0 20px; }
+  .section-title { font-size: clamp(30px, 8vw, 44px); }
+
+  /* Service sections — single-column, reversed image below text */
+  section[id] > .section-inner > div[style*="grid-template-columns:1fr 1fr"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 32px !important;
+  }
+
+  /* Service section padding */
+  section[id="transport"],
+  section[id="warehousing"],
+  section[id="freight"],
+  section[id="customs"],
+  section[id="lastmile"] {
+    padding: 64px 0 !important;
+  }
+
+  /* Service section images — show compact below text */
+  section[id] img[style*="height:480px"] {
+    height: 220px !important;
+  }
+
+  /* Reorder: on dark-bg sections (warehousing, customs) image div comes first in DOM
+     but we want text first on mobile */
+  section[id="warehousing"] > .section-inner > div > div:first-child,
+  section[id="customs"] > .section-inner > div > div:first-child {
+    order: 2;
+  }
+  section[id="warehousing"] > .section-inner > div > div:last-child,
+  section[id="customs"] > .section-inner > div > div:last-child {
+    order: 1;
+  }
+
+  /* Service body text size */
+  section[id] .section-inner div[style*="font-size:15px"] { font-size: 14px !important; }
+
+  /* Feature list items */
+  section[id] .section-inner div[style*="display:flex;align-items:center;gap:12px"] {
+    font-size: 11px !important;
+  }
+
+  /* Buttons */
+  .btn-primary, .btn-secondary, .btn-outline-dark {
+    width: 100%;
+    justify-content: center;
+    padding: 15px 20px;
+    font-size: 12px;
+  }
+
+  /* CTA section */
+  .cta { padding: 72px 0; }
+  .cta-inner { padding: 0 20px; }
+  .cta-title { font-size: clamp(34px, 9vw, 50px); }
+  .cta-sub { font-size: 14px; margin-bottom: 32px; }
+  .cta-actions { flex-direction: column; align-items: stretch; gap: 12px; }
+
+  /* Footer */
+  footer { padding: 44px 20px 28px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+  .footer-brand-name { font-size: 18px; }
+  .footer-tagline { font-size: 15px; }
+  .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+
+  /* Modal/Inquiry form */
+  #inquiryModal {
+    max-width: 100% !important;
+    max-height: 95vh !important;
+    border-radius: 0 !important;
+  }
+  #inquiryModal > div:first-child { padding: 24px 20px 20px !important; }
+  #inquiryModal > div:last-child { padding: 24px 20px 28px !important; }
+  #inquiryModal div[style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+  #inquiryOverlay { align-items: flex-end !important; padding: 0 !important; }
+
+  /* Values grid */
+  .values-grid { grid-template-columns: 1fr; }
+  .value-card { padding: 32px 24px; }
+
+  /* Divisions banner */
+  .divisions-banner { padding: 14px 20px; gap: 10px; }
+  .div-items { gap: 20px; }
+  .div-item { font-size: 11px; }
+}
+
+/* ══════════════════════════════════════════
+   TABLET — 481–768px (patch existing rules)
+   ══════════════════════════════════════════ */
+@media (min-width: 481px) and (max-width: 768px) {
+
+  nav { padding: 0 28px; }
+  .nav-logo img { height: 110px; }
+
+  .page-hero-inner, .section-inner { padding: 0 28px; }
+  .page-hero { padding: 110px 0 60px; }
+  .cta-inner { padding: 0 28px; }
+
+  section[id="transport"],
+  section[id="warehousing"],
+  section[id="freight"],
+  section[id="customs"],
+  section[id="lastmile"] {
+    padding: 72px 0 !important;
+  }
+
+  section[id] > .section-inner > div[style*="grid-template-columns:1fr 1fr"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 40px !important;
+  }
+
+  section[id] img[style*="height:480px"] {
+    height: 300px !important;
+  }
+
+  section[id="warehousing"] > .section-inner > div > div:first-child,
+  section[id="customs"] > .section-inner > div > div:first-child {
+    order: 2;
+  }
+  section[id="warehousing"] > .section-inner > div > div:last-child,
+  section[id="customs"] > .section-inner > div > div:last-child {
+    order: 1;
+  }
+
+  .btn-primary, .btn-secondary, .btn-outline-dark {
+    width: 100%;
+    justify-content: center;
+  }
+  .cta-actions { flex-direction: column; align-items: stretch; gap: 12px; }
+
+  footer { padding: 48px 28px 32px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+}
+
 /* ── HERO IMAGE BACKGROUNDS ── */
 .hero {
-  background-image: url('/images/hero-main.jpg');
+  background-image: url('images/hero-main.jpg');
   background-size: cover;
   background-position: center;
 }
@@ -415,7 +567,7 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
 .page-hero-img { display: none; }
 
 
-.page-hero { background-image: url('images/sunset.jpg'); }
+.page-hero { background-image: url('images/sunsethero.jpg'); }
 </style>
 </head>
 <body>
@@ -816,7 +968,18 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
 <script>
 const nav = document.getElementById('mainNav');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
-document.getElementById('navToggle').addEventListener('click', () => { const l = document.querySelector('.nav-links'); l.style.cssText = l.style.display==='flex'?'':'display:flex;flex-direction:column;position:fixed;top:76px;left:0;right:0;background:rgba(22,28,28,0.98);padding:24px;gap:20px;z-index:999;border-bottom:1px solid rgba(196,169,106,0.2)'; });
+document.getElementById('navToggle').addEventListener('click', () => {
+  const l = document.querySelector('.nav-links');
+  const navH = document.getElementById('mainNav').offsetHeight;
+  if (l.style.display === 'flex') {
+    l.style.cssText = '';
+  } else {
+    l.style.cssText = `display:flex;flex-direction:column;position:fixed;top:${navH}px;left:0;right:0;background:rgba(22,28,28,0.98);padding:20px;gap:16px;z-index:999;border-bottom:1px solid rgba(196,169,106,0.2);`;
+  }
+});
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => { if (window.innerWidth <= 768) document.querySelector('.nav-links').style.cssText = ''; });
+});
 document.querySelectorAll('.reveal').forEach(el => new IntersectionObserver((e) => { e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }); }, {threshold:0.12}).observe(el));
 </script>
 </body>

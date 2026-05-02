@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Danley Logistics — Transport · Warehousing · European Fashion</title>
+<link rel="icon" type="image/x-icon" href="images/white.png">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ── DANLEY LOGISTICS — SHARED STYLESHEET ── */
@@ -28,8 +29,8 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body { font-family: var(--font-body); background: var(--dark); color: var(--cream); overflow-x: hidden; line-height: 1.6; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body { font-family: var(--font-body); background: var(--dark); color: var(--cream);  line-height: 1.6; }
 
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--dark); }
@@ -58,6 +59,7 @@ nav.scrolled { height: 64px; border-bottom-color: rgba(196,169,106,0.25); }
 .nav-cta { background: transparent; border: 1px solid var(--gold); color: var(--gold) !important; padding: 9px 22px; transition: all 0.3s !important; }
 .nav-cta:hover { background: var(--gold) !important; color: var(--dark) !important; }
 .nav-toggle { display: none; background: none; border: none; cursor: pointer; color: var(--white); padding: 4px; }
+
 
 /* ── PAGE HERO (inner pages) ── */
 .page-hero {
@@ -357,7 +359,8 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
 @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.7); } }
 
-/* ── RESPONSIVE ── */
+
+/* ── RESPONSIVE — TABLET ── */
 @media (max-width: 1024px) {
   .nav-links { gap: 20px; }
   .about-grid, .fashion-inner, .contact-grid { grid-template-columns: 1fr; gap: 60px; }
@@ -365,33 +368,154 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
   .services-grid { grid-template-columns: 1fr 1fr; }
   .values-grid { grid-template-columns: 1fr 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .division-card { padding: 48px 40px; min-height: 460px; }
+  .hero-stats { gap: 32px; bottom: 40px; right: 40px; }
 }
+
+/* ── RESPONSIVE — MOBILE ── */
 @media (max-width: 768px) {
-  nav { padding: 0 24px; }
+  /* Nav */
+  nav { padding: 0 20px; }
   .nav-links { display: none; }
   .nav-toggle { display: block; }
-  .section-inner, .page-hero-inner { padding: 0 24px; }
-  .hero-content { padding: 0 24px; }
-  .hero-stats { right: 24px; gap: 24px; }
-  .hero-scroll { left: 24px; }
-  .divisions-banner { padding: 16px 24px; flex-direction: column; gap: 12px; }
-  .services-grid, .locations-grid { grid-template-columns: 1fr; }
-  .services-header { flex-direction: column; align-items: flex-start; gap: 20px; }
-  .team-grid { grid-template-columns: 1fr; }
-  .team-card-general { grid-column: span 1; flex-direction: column; }
-  .values-grid { grid-template-columns: 1fr 1fr; }
+
+  /* Hero */
+  .hero { padding: 140px 0 80px;
+  background: linear-gradient(135deg, #0E2020 0%, #1C3636 50%, #254545 100%);
+  position: relative; overflow: hidden; }
+  .hero-content { padding: 0 20px; max-width: 100%; }
+  .hero-title { font-size: clamp(38px, 10vw, 60px); }
+  .hero-title-bold { font-size: clamp(38px, 10vw, 60px); }
+  .hero-desc { font-size: 14px; margin: 20px 0 32px; max-width: 100%; }
+  .hero-actions { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .hero-actions .btn-primary,
+  .hero-actions .btn-secondary { width: 100%; justify-content: center; min-height: 48px; }
+
+  /* Hero stats — move to below content on mobile */
+  .hero-stats {
+    position: relative;
+    bottom: auto; right: auto;
+    display: flex;
+    gap: 0;
+    justify-content: space-between;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(196,169,106,0.2);
+    opacity: 1;
+    animation: none;
+  }
+  .hero-stat { flex: 1; text-align: center; }
+  .hero-stat + .hero-stat { border-left: 1px solid rgba(196,169,106,0.15); }
+  .hero-stat-num { font-size: 28px; }
+  .hero-stat-label { font-size: 9px; letter-spacing: 0.18em; }
+
+  /* Hide scroll indicator on mobile */
+  .hero-scroll { display: none; }
+
+  /* Layout helpers */
+  .section-inner, .page-hero-inner { padding: 0 20px; }
+
+  /* About */
+  .about { padding: 72px 0; }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .about-card-stack { grid-template-columns: 1fr 1fr; gap: 2px; }
+  .about-card { padding: 24px 20px; }
+  .about-card-value { font-size: 28px; }
+  .about-body { font-size: 14px; margin: 20px 0 28px; }
+
+  /* Divisions banner */
+  .divisions-banner { padding: 16px 20px; flex-direction: column; align-items: flex-start; gap: 12px; }
+  .div-items { gap: 16px; }
+
+  /* Services */
+  .services { padding: 72px 0; }
+  .services-grid { grid-template-columns: 1fr; }
+  .service-card { padding: 32px 24px; }
+  .services-header { flex-direction: column; align-items: flex-start; gap: 16px; margin-bottom: 40px; }
+  .services-header-right { text-align: left; }
+  .services-header-desc { max-width: 100%; }
+
+  /* Divisions */
+  .divisions { padding: 72px 0; }
+  .divisions-grid { grid-template-columns: 1fr; }
+  .division-card { padding: 40px 28px; min-height: unset; }
+  .division-num { font-size: 64px; }
+  .division-title { font-size: 30px; }
+  .divisions-header { margin-bottom: 48px; }
+
+  /* Fashion */
+  .fashion { padding: 72px 0; }
+  .fashion-inner { grid-template-columns: 1fr; gap: 48px; }
+  .fashion-card-main { padding: 36px 28px; }
+  .fashion-card-brand { font-size: 28px; }
+  .fashion-metrics { grid-template-columns: 1fr 1fr; }
+
+  /* Team */
+  .team { padding: 72px 0; }
+  .team-grid { grid-template-columns: 1fr; gap: 2px; max-width: 100%; }
+  .team-card { padding: 36px 28px; }
+  .team-card-general { grid-column: span 1; flex-direction: column; gap: 20px; padding: 28px; }
+  .team-name { font-size: 22px; }
+
+  /* Locations */
+  .locations { padding: 72px 0; }
+  .locations-grid { grid-template-columns: 1fr; }
+  .location-card { padding: 32px 24px; }
+
+  /* Values */
+  .values { padding: 72px 0; }
+  .values-grid { grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 40px; }
+  .value-card { padding: 28px 20px; }
+  .value-num { font-size: 36px; margin-bottom: 12px; }
+
+  /* CTA */
+  .cta { padding: 80px 0; }
+  .cta-inner { padding: 0 20px; }
+  .cta-actions { flex-direction: column; align-items: stretch; gap: 12px; }
+  .cta-actions .btn-primary,
+  .cta-actions .btn-secondary { justify-content: center; min-height: 48px; }
+
+  /* Footer */
+  footer { padding: 48px 20px 32px; }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-  footer { padding: 48px 24px 32px; }
-  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-  .cta-actions { flex-direction: column; align-items: center; }
+  .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+
+  /* Contact form */
+  .contact-section { padding: 72px 0; }
+  .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+  .contact-form { padding: 32px 24px; }
   .form-row { grid-template-columns: 1fr; }
-  .page-hero { padding: 120px 0 60px; }
+
+  /* Inquiry modal — full screen on mobile */
+  #inquiryModal {
+    max-width: 100% !important;
+    max-height: 100svh !important;
+    border-radius: 0 !important;
+  }
+  #inquiryOverlay { padding: 0 !important; align-items: flex-end !important; }
+  #inquiryModal > div:first-child { padding: 24px 24px 20px !important; }
+  #inquiryModal > div:last-child { padding: 24px 24px 32px !important; }
+  #inquiryModal [style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Reveal animation — lighter on mobile */
+  .reveal { transform: translateY(18px); transition-duration: 0.6s; }
+}
+
+/* ── TINY PHONES (≤390px) ── */
+@media (max-width: 390px) {
+  .about-card-stack { grid-template-columns: 1fr; }
+  .values-grid { grid-template-columns: 1fr; }
+  .fashion-metrics { grid-template-columns: 1fr; }
+  .hero-title, .hero-title-bold { font-size: 32px; }
+  .nav-logo img { height: 80px; }
 }
 
 
 /* ── HERO IMAGE BACKGROUNDS ── */
 .hero {
-  background-image: url('images/sea.jpg');
+  background-image: url('images/seahero.jpg');
   background-size: cover;
   background-position: center;
 }
@@ -451,11 +575,6 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
       <a href="divisions.html" class="btn-primary">Explore Our Divisions <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <a href="contact.html" class="btn-secondary">Get in Touch</a>
     </div>
-  </div>
-  <div class="hero-stats">
-    <div class="hero-stat"><span class="hero-stat-num">12+</span><span class="hero-stat-label">Years Experience</span></div>
-    <div class="hero-stat"><span class="hero-stat-num">3</span><span class="hero-stat-label">Branch Offices</span></div>
-    <div class="hero-stat"><span class="hero-stat-num">2</span><span class="hero-stat-label">Business Divisions</span></div>
   </div>
 </section>
 
@@ -621,6 +740,9 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
     <div class="footer-est">Est. 2012 — Nairobi, Kenya</div>
   </div>
 </footer>
+
+<!-- MOBILE MENU OVERLAY -->
+<div class="mobile-menu-overlay" aria-hidden="true"></div>
 
 <div id="inquiryOverlay" style="
   position:fixed;inset:0;background:rgba(10,20,20,0.88);
@@ -805,11 +927,19 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
 const nav = document.getElementById('mainNav');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
 document.getElementById('navToggle').addEventListener('click', () => {
-  const links = document.querySelector('.nav-links');
-  links.style.cssText = links.style.display === 'flex' ? '' : 'display:flex;flex-direction:column;position:fixed;top:76px;left:0;right:0;background:rgba(22,28,28,0.98);padding:24px;gap:20px;z-index:999;border-bottom:1px solid rgba(196,169,106,0.2)';
+  const l = document.querySelector('.nav-links');
+  const navH = document.getElementById('mainNav').offsetHeight;
+  if (l.style.display === 'flex') {
+    l.style.cssText = '';
+  } else {
+    l.style.cssText = `display:flex;flex-direction:column;position:fixed;top:${navH}px;left:0;right:0;background:rgba(22,28,28,0.98);padding:20px;gap:16px;z-index:999;border-bottom:1px solid rgba(196,169,106,0.2);`;
+  }
 });
-const reveals = document.querySelectorAll('.reveal');
-new IntersectionObserver((entries) => { entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); } }); }, { threshold: 0.12 }).observe && reveals.forEach(el => new IntersectionObserver((entries) => { entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.12 }).observe(el));
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => { if (window.innerWidth <= 768) document.querySelector('.nav-links').style.cssText = ''; });
+});
+document.querySelectorAll('.reveal').forEach(el => new IntersectionObserver((e) => { e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }); }, {threshold:0.12}).observe(el));
 </script>
+
 </body>
 </html>

@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About Us — Danley Logistics</title>
+<link rel="icon" type="image/x-icon" href="images/white.png">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ── DANLEY LOGISTICS — SHARED STYLESHEET ── */
@@ -335,7 +336,7 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
 @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.7); } }
 
-/* ── RESPONSIVE ── */
+/* ── RESPONSIVE — TABLET ── */
 @media (max-width: 1024px) {
   .nav-links { gap: 20px; }
   .about-grid, .fashion-inner, .contact-grid { grid-template-columns: 1fr; gap: 60px; }
@@ -343,33 +344,146 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
   .services-grid { grid-template-columns: 1fr 1fr; }
   .values-grid { grid-template-columns: 1fr 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .division-card { padding: 48px 40px; min-height: 460px; }
+  .division-num { font-size: 80px; }
 }
+
 @media (max-width: 768px) {
-  nav { padding: 0 24px; }
+  /* Nav */
+ nav { padding: 0 20px; }
   .nav-links { display: none; }
   .nav-toggle { display: block; }
-  .section-inner, .page-hero-inner { padding: 0 24px; }
-  .hero-content { padding: 0 24px; }
-  .hero-stats { right: 24px; gap: 24px; }
-  .hero-scroll { left: 24px; }
-  .divisions-banner { padding: 16px 24px; flex-direction: column; gap: 12px; }
-  .services-grid, .locations-grid { grid-template-columns: 1fr; }
-  .services-header { flex-direction: column; align-items: flex-start; gap: 20px; }
-  .team-grid { grid-template-columns: 1fr; }
-  .team-card-general { grid-column: span 1; flex-direction: column; }
-  .values-grid { grid-template-columns: 1fr 1fr; }
+
+  /* Layout helpers */
+  .section-inner, .page-hero-inner { padding: 0 20px; }
+
+  /* Page hero */
+  .page-hero { padding: 104px 0 52px; }
+  .page-hero h1 { font-size: clamp(32px, 9vw, 48px); }
+  .page-hero p { font-size: 14px; }
+  .page-hero-eyebrow { margin-bottom: 14px; }
+
+  /* About / story */
+  .about { padding: 72px 0; }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .about-card-stack { grid-template-columns: 1fr 1fr; gap: 2px; }
+  .about-card { padding: 24px 20px; }
+  .about-card-value { font-size: 28px; }
+  .about-body { font-size: 14px; margin: 20px 0 28px; }
+
+  /* Stats bar */
+  [style*="grid-template-columns:repeat(4,1fr)"] {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    padding: 0 !important;
+    gap: 1px !important;
+  }
+  [style*="grid-template-columns:repeat(4,1fr)"] > div {
+    padding: 28px 16px !important;
+    border-left: none !important;
+    border-top: 1px solid rgba(196,169,106,0.1) !important;
+  }
+  [style*="grid-template-columns:repeat(4,1fr)"] > div:nth-child(odd) {
+    border-right: 1px solid rgba(196,169,106,0.1) !important;
+  }
+  [style*="grid-template-columns:repeat(4,1fr)"] [style*="font-size:56px"] {
+    font-size: 40px !important;
+  }
+
+  /* Values */
+  .values { padding: 72px 0; }
+  .values-grid { grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 40px; }
+  .value-card { padding: 28px 20px; }
+  .value-num { font-size: 36px; margin-bottom: 12px; }
+  .value-title { font-size: 13px; }
+
+  /* Services */
+  .services { padding: 72px 0; }
+  .services-grid { grid-template-columns: 1fr; gap: 2px; }
+  .service-card { padding: 32px 24px; }
+  .services-header { flex-direction: column; align-items: flex-start; gap: 16px; margin-bottom: 40px; }
+  .services-header-right { text-align: left; }
+  .services-header-desc { max-width: 100%; }
+
+  /* Divisions */
+  .divisions { padding: 72px 0; }
+  .divisions-grid { grid-template-columns: 1fr; }
+  .division-card { padding: 40px 28px; min-height: unset; }
+  .division-num { font-size: 64px; }
+  .division-title { font-size: 30px; }
+  .divisions-header { margin-bottom: 48px; }
+
+  /* Divisions banner */
+  .divisions-banner { padding: 16px 20px; flex-direction: column; align-items: flex-start; gap: 12px; }
+  .div-items { gap: 16px; }
+
+  /* Fashion section */
+  .fashion { padding: 72px 0; }
+  .fashion-inner { grid-template-columns: 1fr; gap: 48px; }
+  .fashion-card-main { padding: 36px 28px; }
+  .fashion-card-brand { font-size: 28px; }
+  .fashion-metrics { grid-template-columns: 1fr 1fr; }
+
+  /* Why choose us */
+  [style*="grid-template-columns:1fr 1fr"][style*="gap:80px"] {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+  [style*="grid-template-columns:1fr 1fr"][style*="gap:80px"] img {
+    height: 260px !important;
+  }
+
+  /* Team */
+  .team { padding: 72px 0; }
+  .team-grid { grid-template-columns: 1fr; gap: 2px; }
+  .team-card { padding: 36px 28px; }
+  .team-card-general { grid-column: span 1; flex-direction: column; gap: 20px; padding: 28px; }
+  .team-name { font-size: 22px; }
+
+  /* Locations */
+  .locations { padding: 72px 0; }
+  .locations-grid { grid-template-columns: 1fr; }
+  .location-card { padding: 32px 24px; }
+
+  /* CTA */
+  .cta { padding: 80px 0; }
+  .cta-inner { padding: 0 20px; }
+  .cta-actions { flex-direction: column; align-items: stretch; gap: 12px; }
+  .cta-actions .btn-primary,
+  .cta-actions .btn-secondary { justify-content: center; }
+
+  /* Footer */
+  footer { padding: 48px 20px 32px; }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-  footer { padding: 48px 24px 32px; }
-  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-  .cta-actions { flex-direction: column; align-items: center; }
+  .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+
+  /* Contact form */
+  .contact-section { padding: 72px 0; }
+  .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+  .contact-form { padding: 32px 24px; }
   .form-row { grid-template-columns: 1fr; }
-  .page-hero { padding: 120px 0 60px; }
+
+  /* Buttons — bigger tap targets */
+  .btn-primary, .btn-secondary { padding: 16px 28px; min-height: 48px; }
+
+  /* Reveal animations — reduce on mobile for perf */
+  .reveal { transform: translateY(18px); transition-duration: 0.6s; }
+}
+
+/* ── TINY PHONES (≤480px) ── */
+@media (max-width: 480px) {
+  .about-card-stack { grid-template-columns: 1fr; }
+  .values-grid { grid-template-columns: 1fr; }
+  .fashion-metrics { grid-template-columns: 1fr; }
+  .nav-logo img { height: 80px; }
+  .page-hero h1 { font-size: 28px; }
 }
 
 
 /* ── PAGE HERO IMAGE BACKGROUND ── */
 .page-hero {
-  background-image: url('images/twoships.jpg');
+  background-image: url('images/twoshipshero.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -385,7 +499,6 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
 </style>
 </head>
 <body>
-
 <nav id="mainNav">
   <a href="index.html" class="nav-logo">
     <img src="images/logo-bg.png" alt="Danley Logistics">
@@ -400,7 +513,6 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
   </ul>
   <button class="nav-toggle" id="navToggle"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
 </nav>
-
 <!-- PAGE HERO -->
 <section class="page-hero">
   
@@ -578,7 +690,18 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
 <script>
 const nav = document.getElementById('mainNav');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
-document.getElementById('navToggle').addEventListener('click', () => { const l = document.querySelector('.nav-links'); l.style.cssText = l.style.display==='flex'?'':'display:flex;flex-direction:column;position:fixed;top:76px;left:0;right:0;background:rgba(22,28,28,0.98);padding:24px;gap:20px;z-index:999;border-bottom:1px solid rgba(196,169,106,0.2)'; });
+document.getElementById('navToggle').addEventListener('click', () => {
+  const l = document.querySelector('.nav-links');
+  const navH = document.getElementById('mainNav').offsetHeight;
+  if (l.style.display === 'flex') {
+    l.style.cssText = '';
+  } else {
+    l.style.cssText = `display:flex;flex-direction:column;position:fixed;top:${navH}px;left:0;right:0;background:rgba(22,28,28,0.98);padding:20px;gap:16px;z-index:999;border-bottom:1px solid rgba(196,169,106,0.2);`;
+  }
+});
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => { if (window.innerWidth <= 768) document.querySelector('.nav-links').style.cssText = ''; });
+});
 document.querySelectorAll('.reveal').forEach(el => new IntersectionObserver((e) => { e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }); }, {threshold:0.12}).observe(el));
 </script>
 </body>
