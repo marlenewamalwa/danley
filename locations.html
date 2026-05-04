@@ -553,7 +553,7 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
         <div class="location-city">Denmark</div>
         <div class="location-country">Europe</div>
         <div class="location-role">European Hub · Fashion Sourcing</div>
-        <p class="location-desc">European freight sourcing and forwarding. Direct Zalando liquidation network access for The Euro-savage. Europe–Kenya trade lane management without intermediaries.</p>
+        <p class="location-desc">European freight sourcing and forwarding. Direct liquidation network access for The Euro-savage. Europe–Kenya trade lane management without intermediaries.</p>
       </div>
     </div>
   </div>
@@ -623,19 +623,18 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
         <div class="section-eyebrow"><div class="section-eyebrow-line"></div><span class="section-eyebrow-text">🇩🇰 European Hub</span></div>
         <h2 class="section-title" style="color:var(--white)">Denmark<br><em>European Hub</em></h2>
         <div style="margin:24px 0 32px;font-size:15px;line-height:1.9;color:rgba(242,239,233,0.6);font-weight:300;">
-          <p>Our Denmark hub is what makes the Europe–Kenya corridor possible. From here, Linda Wamalwa manages European freight sourcing, supplier relationships, and the Zalando overstock network that powers The Euro-savage. It is the operational foundation of Division 02 — and a significant advantage for any client importing from Europe.</p>
+          <p>Our Denmark hub is what makes the Europe–Kenya corridor possible. From here, Mads Krøyer manages European freight sourcing, supplier relationships, and the overstock network that powers The Euro-savage. It is the operational foundation of Division 02 — and a significant advantage for any client importing from Europe.</p>
         </div>
         <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:32px;">
           <div style="display:flex;align-items:center;gap:12px;font-size:13px;color:rgba(242,239,233,0.6);"><div style="width:20px;height:1px;background:var(--gold);flex-shrink:0;"></div>European freight sourcing &amp; forwarding</div>
-          <div style="display:flex;align-items:center;gap:12px;font-size:13px;color:rgba(242,239,233,0.6);"><div style="width:20px;height:1px;background:var(--gold);flex-shrink:0;"></div>Zalando liquidation network access</div>
+          <div style="display:flex;align-items:center;gap:12px;font-size:13px;color:rgba(242,239,233,0.6);"><div style="width:20px;height:1px;background:var(--gold);flex-shrink:0;"></div>Liquidation network access</div>
           <div style="display:flex;align-items:center;gap:12px;font-size:13px;color:rgba(242,239,233,0.6);"><div style="width:20px;height:1px;background:var(--gold);flex-shrink:0;"></div>Europe–Kenya trade lane management</div>
           <div style="display:flex;align-items:center;gap:12px;font-size:13px;color:rgba(242,239,233,0.6);"><div style="width:20px;height:1px;background:var(--gold);flex-shrink:0;"></div>Fashion inventory consolidation</div>
           <div style="display:flex;align-items:center;gap:12px;font-size:13px;color:rgba(242,239,233,0.6);"><div style="width:20px;height:1px;background:var(--gold);flex-shrink:0;"></div>Supplier &amp; partner management</div>
         </div>
         <div style="padding:24px;background:rgba(0,0,0,0.2);border-left:3px solid var(--gold);">
           <div style="font-family:var(--font-cond);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(242,239,233,0.4);margin-bottom:8px;">Europe Contact</div>
-          <div style="font-size:14px;color:var(--white);font-weight:500;">Linda Wamalwa</div>
-          <a href="tel:+4525485115" style="font-size:14px;color:var(--gold);text-decoration:none;display:block;margin-top:4px;">+45 25 48 51 15</a>
+          <div style="font-size:14px;color:var(--white);font-weight:500;">Mads Krøyer</div>
           <a href="mailto:info@danleylogistics.com" style="font-size:13px;color:rgba(242,239,233,0.5);text-decoration:none;display:block;margin-top:2px;">info@danleylogistics.com</a>
         </div>
       </div>
@@ -655,7 +654,6 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
     <div class="cta-actions reveal reveal-delay-2">
       <a href="#" class="btn-primary open-inquiry" data-subject="Transport">Send an Enquiry</a>
       <a href="tel:+254778389333" class="btn-secondary">Kenya: +254 778 38 93 33</a>
-      <a href="tel:+4525485115" class="btn-secondary">Europe: +45 25 48 51 15</a>
     </div>
   </div>
 </section>
@@ -692,7 +690,6 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
       <ul class="footer-links">
         <li><a href="mailto:info@danleylogistics.com">info@danleylogistics.com</a></li>
         <li><a href="tel:+254778389333">+254 778 38 93 33 (KE)</a></li>
-        <li><a href="tel:+4525485115">+45 25 48 51 15 (EU)</a></li>
         <li><a href="locations.html">Nairobi · Mombasa · Denmark</a></li>
       </ul>
     </div>
@@ -733,7 +730,7 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
 
     <!-- FORM BODY -->
     <div style="padding:36px 44px 40px;">
-      <form id="inquiryForm" action="mailto:info@danleylogistics.com" method="POST" enctype="text/plain">
+      <form id="contactForm">
 
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px;">
           <div>
@@ -827,10 +824,15 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
   var closeBtn = document.getElementById('inquiryClose');
   var subject  = document.getElementById('inqSubject');
 
+  function isMobile() { return window.innerWidth <= 600; }
+
+  function openTransform()  { return isMobile() ? 'translateY(0)'    : 'translateY(0) scale(1)'; }
+  function closedTransform(){ return isMobile() ? 'translateY(100%)' : 'translateY(28px) scale(0.98)'; }
+
   function open(topic) {
     overlay.style.opacity = '1';
     overlay.style.pointerEvents = 'all';
-    modal.style.transform = 'translateY(0) scale(1)';
+    modal.style.transform = openTransform();
     document.body.style.overflow = 'hidden';
     if (topic && subject) {
       for (var i = 0; i < subject.options.length; i++) {
@@ -851,9 +853,17 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
   function close() {
     overlay.style.opacity = '0';
     overlay.style.pointerEvents = 'none';
-    modal.style.transform = 'translateY(28px) scale(0.98)';
+    modal.style.transform = closedTransform();
     document.body.style.overflow = '';
   }
+
+  /* Set correct initial closed transform on load */
+  modal.style.transform = closedTransform();
+  window.addEventListener('resize', function() {
+    if (overlay.style.pointerEvents === 'none') {
+      modal.style.transform = closedTransform();
+    }
+  });
 
   /* Trigger buttons */
   document.querySelectorAll('.open-inquiry').forEach(function(el) {
@@ -876,11 +886,36 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
     if (e.key === 'Escape' && overlay.style.pointerEvents !== 'none') close();
   });
 
+  /* Form submit via send.php */
+  var form = document.getElementById('contactForm');
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var btn = form.querySelector('[type="submit"]');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      fetch('send.php', { method: 'POST', body: new FormData(form) })
+        .then(function() {
+          form.innerHTML = '<div style="text-align:center;padding:48px 20px;">'
+            + '<div style="font-size:40px;margin-bottom:16px;">✓</div>'
+            + '<div style="font-size:24px;color:#1C3636;">Enquiry sent.</div>'
+            + '<p style="color:#8A9898;margin-top:10px;">We\'ll be in touch within one business day.</p>'
+            + '</div>';
+        })
+        .catch(function() {
+          btn.textContent = 'Send Enquiry →';
+          btn.disabled = false;
+          alert('Something went wrong. Please email info@danleylogistics.com directly.');
+        });
+    });
+  }
+
   /* Expose globally */
   window.openInquiry = open;
   window.closeInquiry = close;
 })();
 </script>
+
 
 <script>
 const nav = document.getElementById('mainNav');

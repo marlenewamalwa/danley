@@ -776,7 +776,6 @@ nav { height: 60px; }
       <ul class="footer-links">
         <li><a href="mailto:info@danleylogistics.com">info@danleylogistics.com</a></li>
         <li><a href="tel:+254778389333">+254 778 38 93 33 (KE)</a></li>
-        <li><a href="tel:+4525485115">+45 25 48 51 15 (EU)</a></li>
         <li><a href="locations.html">Nairobi · Mombasa · Denmark</a></li>
       </ul>
     </div>
@@ -816,7 +815,7 @@ nav { height: 60px; }
 
     <!-- FORM BODY -->
     <div style="padding:36px 44px 40px;">
-      <form id="inquiryForm" action="mailto:info@danleylogistics.com" method="POST" enctype="text/plain">
+     <form id="contactForm">
 
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px;">
           <div>
@@ -910,10 +909,15 @@ nav { height: 60px; }
   var closeBtn = document.getElementById('inquiryClose');
   var subject  = document.getElementById('inqSubject');
 
+  function isMobile() { return window.innerWidth <= 600; }
+
+  function openTransform()  { return isMobile() ? 'translateY(0)'    : 'translateY(0) scale(1)'; }
+  function closedTransform(){ return isMobile() ? 'translateY(100%)' : 'translateY(28px) scale(0.98)'; }
+
   function open(topic) {
     overlay.style.opacity = '1';
     overlay.style.pointerEvents = 'all';
-    modal.style.transform = 'translateY(0) scale(1)';
+    modal.style.transform = openTransform();
     document.body.style.overflow = 'hidden';
     if (topic && subject) {
       for (var i = 0; i < subject.options.length; i++) {
@@ -934,9 +938,17 @@ nav { height: 60px; }
   function close() {
     overlay.style.opacity = '0';
     overlay.style.pointerEvents = 'none';
-    modal.style.transform = 'translateY(28px) scale(0.98)';
+    modal.style.transform = closedTransform();
     document.body.style.overflow = '';
   }
+
+  /* Set correct initial closed transform on load */
+  modal.style.transform = closedTransform();
+  window.addEventListener('resize', function() {
+    if (overlay.style.pointerEvents === 'none') {
+      modal.style.transform = closedTransform();
+    }
+  });
 
   /* Trigger buttons */
   document.querySelectorAll('.open-inquiry').forEach(function(el) {
@@ -958,6 +970,30 @@ nav { height: 60px; }
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape' && overlay.style.pointerEvents !== 'none') close();
   });
+
+  /* Form submit via send.php */
+  var form = document.getElementById('contactForm');
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var btn = form.querySelector('[type="submit"]');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      fetch('send.php', { method: 'POST', body: new FormData(form) })
+        .then(function() {
+          form.innerHTML = '<div style="text-align:center;padding:48px 20px;">'
+            + '<div style="font-size:40px;margin-bottom:16px;">✓</div>'
+            + '<div style="font-size:24px;color:#1C3636;">Enquiry sent.</div>'
+            + '<p style="color:#8A9898;margin-top:10px;">We\'ll be in touch within one business day.</p>'
+            + '</div>';
+        })
+        .catch(function() {
+          btn.textContent = 'Send Enquiry →';
+          btn.disabled = false;
+          alert('Something went wrong. Please email info@danleylogistics.com directly.');
+        });
+    });
+  }
 
   /* Expose globally */
   window.openInquiry = open;

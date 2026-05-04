@@ -656,7 +656,7 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
         <div class="fashion-label">Division 02 · Growth Engine</div>
         <div class="section-eyebrow"><div class="section-eyebrow-line"></div><span class="section-eyebrow-text">The Euro-savage</span></div>
         <h2 class="section-title" style="color:var(--teal)">European fashion,<br><em>Nairobi prices.</em></h2>
-        <p class="fashion-body">The Euro-savage by Danley brings authenticated Zalando overstock and returns — Zara, Mango, Levi's, Adidas and more — from our Denmark hub directly to Nairobi. 60–75% below mall prices. Our own logistics infrastructure is the unfair advantage no standalone fashion retailer can replicate.</p>
+        <p class="fashion-body">The Euro-savage by Danley brings authenticated overstock and returns — Zara, Mango, Levi's, Adidas and more — from our Denmark hub directly to Nairobi. 60–75% below mall prices. Our own logistics infrastructure is the unfair advantage no standalone fashion retailer can replicate.</p>
         <div class="fashion-metrics">
           <div class="fashion-metric"><div class="fashion-metric-val">60–75%</div><div class="fashion-metric-label">Below Mall Prices</div></div>
           <div class="fashion-metric"><div class="fashion-metric-val">DK→NBI</div><div class="fashion-metric-label">Direct Trade Lane</div></div>
@@ -669,7 +669,7 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
         <div class="fashion-card-main">
           <div class="fashion-card-title">The Euro-savage by Danley</div>
           <div class="fashion-card-brand">European <em>Fashion</em></div>
-          <div class="fashion-card-sub">Authenticated Zalando Network · Denmark → Nairobi</div>
+          <div class="fashion-card-sub">Authenticated Network · Denmark → Nairobi</div>
           <div class="fashion-items-list">
             <div class="fashion-item-row"><span class="fashion-item-name">Zara &amp; Mango Womenswear</span><span class="fashion-item-badge">Best Seller</span></div>
             <div class="fashion-item-row"><span class="fashion-item-name">Levi's Denim Collection</span><span class="fashion-item-badge">In Stock</span></div>
@@ -692,7 +692,6 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
     <div class="cta-actions reveal reveal-delay-2">
       <a href="contact.html" class="btn-primary open-inquiry" data-subject="Transport">Send an Enquiry <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <a href="tel:+254778389333" class="btn-secondary">Kenya: +254 778 38 93 33</a>
-      <a href="tel:+4525485115" class="btn-secondary">Europe: +45 25 48 51 15</a>
     </div>
   </div>
 </section>
@@ -730,7 +729,7 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
       <ul class="footer-links">
         <li><a href="mailto:info@danleylogistics.com">info@danleylogistics.com</a></li>
         <li><a href="tel:+254778389333">+254 778 38 93 33 (KE)</a></li>
-        <li><a href="tel:+4525485115">+45 25 48 51 15 (EU)</a></li>
+        <li><a href="tel:">+45 25 48 51 15 (EU)</a></li>
         <li><a href="locations.html">Nairobi · Mombasa · Denmark</a></li>
       </ul>
     </div>
@@ -774,7 +773,7 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
 
     <!-- FORM BODY -->
     <div style="padding:36px 44px 40px;">
-      <form id="inquiryForm" action="mailto:info@danleylogistics.com" method="POST" enctype="text/plain">
+      <form id="contactForm">
 
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px;">
           <div>
@@ -868,10 +867,15 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
   var closeBtn = document.getElementById('inquiryClose');
   var subject  = document.getElementById('inqSubject');
 
+  function isMobile() { return window.innerWidth <= 600; }
+
+  function openTransform()  { return isMobile() ? 'translateY(0)'    : 'translateY(0) scale(1)'; }
+  function closedTransform(){ return isMobile() ? 'translateY(100%)' : 'translateY(28px) scale(0.98)'; }
+
   function open(topic) {
     overlay.style.opacity = '1';
     overlay.style.pointerEvents = 'all';
-    modal.style.transform = 'translateY(0) scale(1)';
+    modal.style.transform = openTransform();
     document.body.style.overflow = 'hidden';
     if (topic && subject) {
       for (var i = 0; i < subject.options.length; i++) {
@@ -892,9 +896,17 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
   function close() {
     overlay.style.opacity = '0';
     overlay.style.pointerEvents = 'none';
-    modal.style.transform = 'translateY(28px) scale(0.98)';
+    modal.style.transform = closedTransform();
     document.body.style.overflow = '';
   }
+
+  /* Set correct initial closed transform on load */
+  modal.style.transform = closedTransform();
+  window.addEventListener('resize', function() {
+    if (overlay.style.pointerEvents === 'none') {
+      modal.style.transform = closedTransform();
+    }
+  });
 
   /* Trigger buttons */
   document.querySelectorAll('.open-inquiry').forEach(function(el) {
@@ -916,6 +928,30 @@ footer { background: #0C1818; border-top: 1px solid rgba(196,169,106,0.15); padd
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape' && overlay.style.pointerEvents !== 'none') close();
   });
+
+  /* Form submit via send.php */
+  var form = document.getElementById('contactForm');
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var btn = form.querySelector('[type="submit"]');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      fetch('send.php', { method: 'POST', body: new FormData(form) })
+        .then(function() {
+          form.innerHTML = '<div style="text-align:center;padding:48px 20px;">'
+            + '<div style="font-size:40px;margin-bottom:16px;">✓</div>'
+            + '<div style="font-size:24px;color:#1C3636;">Enquiry sent.</div>'
+            + '<p style="color:#8A9898;margin-top:10px;">We\'ll be in touch within one business day.</p>'
+            + '</div>';
+        })
+        .catch(function() {
+          btn.textContent = 'Send Enquiry →';
+          btn.disabled = false;
+          alert('Something went wrong. Please email info@danleylogistics.com directly.');
+        });
+    });
+  }
 
   /* Expose globally */
   window.openInquiry = open;
